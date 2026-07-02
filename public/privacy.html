@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - Team Zero</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+    <meta name="description" content="سياسة الخصوصية وكيفية تعامل Team Zero مع بياناتك">
+
+    <!-- ===== Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/privacy.css">
+
+    <!-- ===== Libraries ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                    <span>Team <span class="highlight">Zero</span></span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="team.html">الفريق</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+
+                    <!-- ===== User Menu (Logged In) ===== -->
+                    <li class="nav-user-wrapper" id="navUserWrapper" style="display:none;">
+                        <div class="nav-user" id="navUserBtn">
+                            <div class="avatar" id="navAvatar">👤</div>
+                            <span class="name" id="navUserName">المستخدم</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>الملف الشخصي</span>
+                            </a>
+                            <a href="#" id="adminLink" style="display:none;">
+                                <i class="fas fa-cog"></i>
+                                <span>لوحة التحكم</span>
+                            </a>
+                            <div class="divider"></div>
+                            <a href="#" class="logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- ===== Auth Links (Logged Out) ===== -->
+                    <li id="authLinks">
+                        <a href="login.html" class="auth-link login-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>تسجيل الدخول</span>
+                        </a>
+                        <a href="register.html" class="auth-link register-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>إنشاء حساب</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+    PRIVACY PAGE
+    ======================================== -->
+    <section class="legal-page">
+        <div class="container">
+            <!-- ===== Header ===== -->
+            <div class="legal-header" data-aos="fade-up">
+                <div class="privacy-badge">
+                    <i class="fas fa-shield-alt"></i> خصوصية آمنة
+                </div>
+                <div class="section-tag"><i class="fas fa-lock"></i> سياسة الخصوصية</div>
+                <h1>كيف نحمي <span class="gradient-text">بياناتك</span></h1>
+                <p>نلتزم بحماية خصوصيتك وضمان أمان بياناتك الشخصية</p>
+                <div class="last-updated">📅 آخر تحديث: 30 يونيو 2026</div>
+            </div>
+
+            <!-- ===== Table of Contents ===== -->
+            <div class="toc" data-aos="fade-up">
+                <h3><i class="fas fa-list"></i> محتويات الصفحة</h3>
+                <div class="toc-grid">
+                    <a href="#privacy-1"><i class="fas fa-circle"></i> المعلومات التي نجمعها</a>
+                    <a href="#privacy-2"><i class="fas fa-circle"></i> كيف نستخدم معلوماتك</a>
+                    <a href="#privacy-3"><i class="fas fa-circle"></i> مشاركة المعلومات</a>
+                    <a href="#privacy-4"><i class="fas fa-circle"></i> أمن البيانات</a>
+                    <a href="#privacy-5"><i class="fas fa-circle"></i> ملفات تعريف الارتباط (Cookies)</a>
+                    <a href="#privacy-6"><i class="fas fa-circle"></i> حقوقك</a>
+                    <a href="#privacy-7"><i class="fas fa-circle"></i> خصوصية الأطفال</a>
+                    <a href="#privacy-8"><i class="fas fa-circle"></i> التعديلات</a>
+                    <a href="#privacy-9"><i class="fas fa-circle"></i> اتصل بنا</a>
+                </div>
+            </div>
+
+            <!-- ===== Content ===== -->
+            <div class="legal-content">
+                <div class="legal-card" data-aos="fade-up" id="privacy-1">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-database"></i></span> 1. المعلومات التي نجمعها
+                    </div>
+                    <p>نحن نجمع أنواعاً محددة من المعلومات لتقديم خدماتنا وتحسين تجربتك:</p>
+
+                    <div class="data-list">
+                        <div class="data-item">
+                            <div class="data-icon">👤</div>
+                            <div class="data-name">المعلومات الشخصية</div>
+                            <div class="data-desc">الاسم، البريد الإلكتروني، رقم الهاتف</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-icon">💻</div>
+                            <div class="data-name">بيانات الاستخدام</div>
+                            <div class="data-desc">الصفحات التي تزورها، الوقت الذي تقضيه</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-icon">📱</div>
+                            <div class="data-name">معلومات الجهاز</div>
+                            <div class="data-desc">نوع الجهاز، نظام التشغيل، المتصفح</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-icon">📍</div>
+                            <div class="data-name">الموقع الجغرافي</div>
+                            <div class="data-desc">البلد والمدينة (تقريبي)</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p><strong>ملاحظة:</strong> نجمع فقط المعلومات التي تقدمها لنا طواعية أو التي نحتاجها لتقديم خدماتنا.</p>
+                    </div>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="privacy-2">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-cogs"></i></span> 2. كيف نستخدم معلوماتك
+                    </div>
+                    <p>نستخدم معلوماتك للأغراض التالية:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>تقديم الخدمات:</strong> تنفيذ مشاريعك وتقديم الدعم الفني</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>تحسين التجربة:</strong> تطوير خدماتنا بناءً على احتياجاتك</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>التواصل:</strong> إرسال تحديثات، عروض، وإشعارات مهمة</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>الأمان:</strong> حماية حسابك ومنع الاحتيال</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>التحليلات:</strong> فهم كيفية استخدامك لخدماتنا</div>
+                        </li>
+                    </ul>
+                    <p>نلتزم بعدم بيع أو تأجير معلوماتك الشخصية لأي طرف ثالث.</p>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="privacy-3">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-share-alt"></i></span> 3. مشاركة المعلومات
+                    </div>
+                    <p>نشارك معلوماتك في حالات محدودة:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>مع مزودي الخدمة:</strong> شركاء موثوقون يساعدوننا في تشغيل خدماتنا</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>لأسباب قانونية:</strong> عند طلبها من قبل السلطات القضائية</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>بموافقتك:</strong> في حال وافقت على مشاركة معلوماتك</div>
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>تنبيه:</strong> جميع مزودي الخدمة لدينا ملتزمون بمعايير الخصوصية والأمان الصارمة.</p>
+                    </div>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="privacy-4">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-shield-alt"></i></span> 4. أمن البيانات
+                    </div>
+                    <p>نطبق إجراءات أمنية متقدمة لحماية بياناتك:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-lock"></i>
+                            <div><strong>تشفير البيانات:</strong> جميع البيانات مشفرة أثناء النقل والتخزين</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-server"></i>
+                            <div><strong>خوادم آمنة:</strong> استضافة في مراكز بيانات محمية</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-shield"></i>
+                            <div><strong>صلاحيات محدودة:</strong> الوصول إلى البيانات مقيد للموظفين المصرح لهم</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-sync-alt"></i>
+                            <div><strong>نسخ احتياطي:</strong> نسخ احتياطي منتظم للبيانات</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="privacy-5">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-cookie"></i></span> 5. ملفات تعريف الارتباط (Cookies)
+                    </div>
+                    <p>نستخدم ملفات تعريف الارتباط لتحسين تجربتك:</p>
+
+                    <table class="cookie-table">
+                        <thead>
+                            <tr>
+                                <th>النوع</th>
+                                <th>الغرض</th>
+                                <th>المدة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ضرورية</td>
+                                <td>تشغيل الموقع بشكل أساسي</td>
+                                <td>جلسة</td>
+                            </tr>
+                            <tr>
+                                <td>تفضيلات</td>
+                                <td>تذكر إعداداتك وتفضيلاتك</td>
+                                <td>1 سنة</td>
+                            </tr>
+                            <tr>
+                                <td>تحليلية</td>
+                                <td>فهم سلوك المستخدمين</td>
+                                <td>2 سنة</td>
+                            </tr>
+                            <tr>
+                                <td>تسويقية</td>
+                                <td>تقديم محتوى مخصص</td>
+                                <td>1 سنة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>يمكنك التحكم في استخدام ملفات تعريف الارتباط من خلال إعدادات متصفحك.</p>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="privacy-6">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-user-check"></i></span> 6. حقوقك
+                    </div>
+                    <p>لديك الحقوق التالية بخصوص بياناتك الشخصية:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>حق الوصول:</strong> طلب نسخة من بياناتك المخزنة</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>حق التصحيح:</strong> طلب تصحيح أي معلومات غير دقيقة</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>حق الحذف:</strong> طلب حذف بياناتك ("الحق في النسيان")</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>حق الاعتراض:</strong> الاعتراض على معالجة بياناتك</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>حق نقل البيانات:</strong> طلب نقل بياناتك إلى مزود آخر</div>
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>ملاحظة:</strong> يمكنك ممارسة هذه الحقوق في أي وقت عن طريق التواصل معنا.</p>
+                    </div>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="privacy-7">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-child"></i></span> 7. خصوصية الأطفال
+                    </div>
+                    <p>خدماتنا موجهة للأفراد الذين تبلغ أعمارهم 16 سنة فما فوق. نحن لا نجمع عمداً معلومات عن الأطفال دون سن 16 سنة.</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>إذا كنت دون 16 سنة، يرجى عدم استخدام خدماتنا دون موافقة ولي الأمر.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>إذا علمنا بأننا جمعنا معلومات عن طفل دون سن 16، سنقوم بحذفها فوراً.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="privacy-8">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-edit"></i></span> 8. التعديلات على سياسة الخصوصية
+                    </div>
+                    <p>نحتفظ بحق تحديث سياسة الخصوصية بشكل دوري. سيتم إعلامك بأي تغييرات جوهرية.</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>سيتم نشر التعديلات على هذه الصفحة مع تحديث التاريخ.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>استمرارك في استخدام خدماتنا يعني قبولك لسياسة الخصوصية المحدثة.</div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                        <span>Team <span class="highlight">Zero</span></span>
+                    </a>
+                    <p>نبني المستقبل الرقمي معًا.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201203875621"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@zero_team_0"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://discord.gg/NjZ9d4ZEma"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#web">تطوير المواقع</a></li>
+                        <li><a href="services.html#design">التصميم</a></li>
+                        <li><a href="services.html#video">المونتاج</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>معلومات</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html">الأسعار</a></li>
+                        <li><a href="team.html">الفريق</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>

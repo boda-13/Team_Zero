@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - Team Zero</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                    <span>Team <span class="highlight">Zero</span></span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="team.html">الفريق</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile -->
+    <section class="profile-page">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-avatar" id="avatarUpload">
+                    <span id="avatarEmoji">👤</span>
+                    <div class="upload-overlay">
+                        <i class="fas fa-camera"></i> تغيير
+                    </div>
+                    <input type="file" id="avatarInput" accept="image/*" style="display:none">
+                </div>
+                <h2 id="profileName">المستخدم</h2>
+                <p id="profileEmail">email@example.com</p>
+            </div>
+
+            <div class="profile-tabs">
+                <button class="active" data-tab="info">المعلومات الشخصية</button>
+                <button data-tab="security">الأمان</button>
+                <button data-tab="danger">خيارات متقدمة</button>
+            </div>
+
+            <!-- Info Tab -->
+            <div class="profile-section active" id="tab-info">
+                <div class="profile-card">
+                    <div class="alert" id="infoAlert"></div>
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" id="fullName" placeholder="الاسم الكامل">
+                        </div>
+                        <div class="form-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" id="email" placeholder="البريد الإلكتروني" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" id="phone" placeholder="رقم الهاتف">
+                        </div>
+                        <div class="form-group">
+                            <label>نبذة تعريفية</label>
+                            <textarea id="bio" placeholder="اكتب نبذة عنك..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-save">حفظ التغييرات</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Security Tab -->
+            <div class="profile-section" id="tab-security">
+                <div class="profile-card">
+                    <div class="alert" id="securityAlert"></div>
+                    <form id="passwordForm">
+                        <div class="form-group">
+                            <label>كلمة المرور الحالية</label>
+                            <input type="password" id="currentPassword" placeholder="أدخل كلمة المرور الحالية" required>
+                        </div>
+                        <div class="form-group">
+                            <label>كلمة المرور الجديدة</label>
+                            <input type="password" id="newPassword" placeholder="أدخل كلمة المرور الجديدة" required>
+                        </div>
+                        <div class="form-group">
+                            <label>تأكيد كلمة المرور الجديدة</label>
+                            <input type="password" id="confirmNewPassword" placeholder="أعد إدخال كلمة المرور الجديدة" required>
+                        </div>
+                        <button type="submit" class="btn-save">تغيير كلمة المرور</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Danger Tab -->
+            <div class="profile-section" id="tab-danger">
+                <div class="profile-card">
+                    <h3 style="color: var(--danger); margin-bottom: 1rem;">⚠️ خيارات متقدمة</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        هذه الخيارات غير قابلة للتراجع. يرجى التأكد قبل المتابعة.
+                    </p>
+
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem;">حذف الحساب</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+                            سيتم حذف جميع بياناتك بشكل نهائي. هذا الإجراء غير قابل للتراجع.
+                        </p>
+                        <form id="deleteForm">
+                            <div class="form-group">
+                                <label>أدخل كلمة المرور للتأكيد</label>
+                                <input type="password" id="deletePassword" placeholder="كلمة المرور" required>
+                            </div>
+                            <button type="submit" class="btn-danger">
+                                <i class="fas fa-trash"></i> حذف الحساب
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                        <span>Team <span class="highlight">Zero</span></span>
+                    </a>
+                    <p>نبني المستقبل الرقمي معًا.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201203875621"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@zero_team_0"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://discord.gg/NjZ9d4ZEma"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">تطوير المواقع</a></li>
+                        <li><a href="services.html">التصميم</a></li>
+                        <li><a href="services.html">المونتاج</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>معلومات</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html">الأسعار</a></li>
+                        <li><a href="team.html">الفريق</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Check Authentication =====
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user') || 'null');
+
+        if (!token || !user) {
+            window.location.href = 'login.html';
+        }
+
+        // ===== Load Profile =====
+        async function loadProfile() {
+            try {
+                const response = await fetch('/api/profile', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const data = await response.json();
+
+                document.getElementById('profileName').textContent = data.fullName || data.username || 'المستخدم';
+                document.getElementById('profileEmail').textContent = data.email || '';
+                document.getElementById('fullName').value = data.fullName || '';
+                document.getElementById('email').value = data.email || '';
+                document.getElementById('phone').value = data.phone || '';
+                document.getElementById('bio').value = data.bio || '';
+                document.getElementById('avatarEmoji').textContent = data.avatar ? '🖼️' : '👤';
+
+            } catch (error) {
+                console.error('Load profile error:', error);
+            }
+        }
+
+        loadProfile();
+
+        // ===== Tabs =====
+        document.querySelectorAll('.profile-tabs button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.profile-tabs button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                document.querySelectorAll('.profile-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(`tab-${this.dataset.tab}`).classList.add('active');
+            });
+        });
+
+        // ===== Hamburger =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // ===== Update Profile =====
+        document.getElementById('profileForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const alert = document.getElementById('infoAlert');
+
+            try {
+                const response = await fetch('/api/profile', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        fullName: document.getElementById('fullName').value,
+                        phone: document.getElementById('phone').value,
+                        bio: document.getElementById('bio').value
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert.className = 'alert success';
+                    alert.textContent = '✅ تم تحديث الملف الشخصي بنجاح';
+                    // Update local user data
+                    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+                    userData.fullName = document.getElementById('fullName').value;
+                    localStorage.setItem('user', JSON.stringify(userData));
+                } else {
+                    alert.className = 'alert error';
+                    alert.textContent = '❌ ' + (data.error || 'فشل التحديث');
+                }
+            } catch (error) {
+                alert.className = 'alert error';
+                alert.textContent = '❌ حدث خطأ أثناء التحديث';
+            }
+        });
+
+        // ===== Change Password =====
+        document.getElementById('passwordForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const alert = document.getElementById('securityAlert');
+
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+            if (newPassword !== confirmNewPassword) {
+                alert.className = 'alert error';
+                alert.textContent = '❌ كلمات المرور غير متطابقة';
+                return;
+            }
+
+            if (newPassword.length < 6) {
+                alert.className = 'alert error';
+                alert.textContent = '❌ كلمة المرور الجديدة يجب أن تكون 6 أحرف على الأقل';
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/auth/change-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        currentPassword,
+                        newPassword
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert.className = 'alert success';
+                    alert.textContent = '✅ تم تغيير كلمة المرور بنجاح';
+                    document.getElementById('passwordForm').reset();
+                } else {
+                    alert.className = 'alert error';
+                    alert.textContent = '❌ ' + (data.error || 'فشل تغيير كلمة المرور');
+                }
+            } catch (error) {
+                alert.className = 'alert error';
+                alert.textContent = '❌ حدث خطأ أثناء تغيير كلمة المرور';
+            }
+        });
+
+        // ===== Delete Account =====
+        document.getElementById('deleteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!confirm('هل أنت متأكد من حذف حسابك؟ هذا الإجراء غير قابل للتراجع!')) {
+                return;
+            }
+
+            const password = document.getElementById('deletePassword').value;
+
+            try {
+                const response = await fetch('/api/profile/delete', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('❌ ' + (data.error || 'فشل حذف الحساب'));
+                }
+            } catch (error) {
+                alert('❌ حدث خطأ أثناء حذف الحساب');
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

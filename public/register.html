@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - Team Zero</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+    <div class="auth-page">
+        <div class="auth-box">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                <span>Team Zero</span>
+            </a>
+
+            <h2>إنشاء حساب جديد 🚀</h2>
+            <p class="subtitle">انضم إلى Team Zero وابدأ رحلتك الرقمية</p>
+
+            <div class="alert" id="alert">
+                <i class="fas fa-info-circle"></i>
+                <span id="alertMessage">رسالة التنبيه</span>
+            </div>
+
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>اسم المستخدم</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="username" placeholder="أدخل اسم المستخدم" required minlength="3" maxlength="30">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="fullName" placeholder="أدخل الاسم الكامل" required minlength="2">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>رقم الهاتف (اختياري)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="أدخل رقم الهاتف">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="أدخل كلمة المرور" required minlength="8">
+                    </div>
+                    <div class="password-strength">
+                        <div class="bar" id="passwordStrength"></div>
+                    </div>
+                    <div class="password-hint">يجب أن تحتوي على 8 أحرف على الأقل، حرف كبير، حرف صغير، ورقم</div>
+                </div>
+
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-check-circle"></i>
+                        <input type="password" id="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                </div>
+
+                <div class="terms-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        أوافق على <a href="terms.html">الشروط والأحكام</a> و
+                        <a href="privacy.html">سياسة الخصوصية</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-register" id="registerBtn">
+                    <span class="btn-text"><i class="fas fa-user-plus"></i> إنشاء الحساب</span>
+                    <span class="spinner"></span>
+                </button>
+            </form>
+
+            <div class="social-login">
+                <div class="divider">أو سجل باستخدام</div>
+                <div class="social-buttons">
+                    <a href="#" class="google" title="Google">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="github" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="discord" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const registerForm = document.getElementById('registerForm');
+            const registerBtn = document.getElementById('registerBtn');
+            const alert = document.getElementById('alert');
+            const alertMessage = document.getElementById('alertMessage');
+
+            // ===== Password Strength =====
+            const passwordInput = document.getElementById('password');
+            const strengthBar = document.getElementById('passwordStrength');
+
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+
+                if (password.length >= 8) strength++;
+                if (/[a-z]/.test(password)) strength++;
+                if (/[A-Z]/.test(password)) strength++;
+                if (/[0-9]/.test(password)) strength++;
+                if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+                strengthBar.className = 'bar';
+                if (password.length === 0) {
+                    strengthBar.style.width = '0';
+                } else if (strength <= 2) {
+                    strengthBar.classList.add('weak');
+                } else if (strength <= 4) {
+                    strengthBar.classList.add('medium');
+                } else {
+                    strengthBar.classList.add('strong');
+                }
+            });
+
+            function showAlert(message, type = 'error') {
+                alert.className = 'alert ' + type;
+                alertMessage.textContent = message;
+                clearTimeout(alert._timeout);
+                alert._timeout = setTimeout(() => {
+                    alert.className = 'alert';
+                }, 5000);
+            }
+
+            function hideAlert() {
+                alert.className = 'alert';
+                clearTimeout(alert._timeout);
+            }
+
+            function setLoading(loading) {
+                if (loading) {
+                    registerBtn.classList.add('loading');
+                    registerBtn.disabled = true;
+                } else {
+                    registerBtn.classList.remove('loading');
+                    registerBtn.disabled = false;
+                }
+            }
+
+            registerForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                hideAlert();
+
+                const username = document.getElementById('username').value.trim();
+                const fullName = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                const terms = document.getElementById('terms').checked;
+
+                // Validation
+                if (username.length < 3) {
+                    showAlert('❌ اسم المستخدم يجب أن يكون 3 أحرف على الأقل', 'error');
+                    return;
+                }
+
+                if (!fullName || fullName.length < 2) {
+                    showAlert('❌ الاسم الكامل مطلوب و يجب أن يكون حرفين على الأقل', 'error');
+                    return;
+                }
+
+                if (!email || !email.includes('@') || !email.includes('.')) {
+                    showAlert('❌ البريد الإلكتروني غير صحيح', 'error');
+                    return;
+                }
+
+                if (password.length < 8) {
+                    showAlert('❌ كلمة المرور يجب أن تكون 8 أحرف على الأقل', 'error');
+                    return;
+                }
+
+                if (!/[a-z]/.test(password) || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+                    showAlert('❌ كلمة المرور يجب أن تحتوي على حرف كبير وحرف صغير ورقم', 'error');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showAlert('❌ كلمات المرور غير متطابقة', 'error');
+                    return;
+                }
+
+                if (!terms) {
+                    showAlert('❌ يرجى الموافقة على الشروط والأحكام', 'error');
+                    return;
+                }
+
+                setLoading(true);
+
+                try {
+                    const response = await fetch('/api/auth/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username,
+                            fullName,
+                            email,
+                            phone,
+                            password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        showAlert('✅ تم إنشاء الحساب بنجاح! جاري التحويل إلى صفحة تسجيل الدخول...', 'success');
+                        setLoading(false);
+
+                        localStorage.setItem('lastRegisteredEmail', email);
+
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 2000);
+                    } else {
+                        showAlert('❌ ' + (data.error || 'فشل إنشاء الحساب'), 'error');
+                        setLoading(false);
+                    }
+                } catch (error) {
+                    showAlert('❌ حدث خطأ أثناء إنشاء الحساب', 'error');
+                    setLoading(false);
+                }
+            });
+
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', hideAlert);
+            });
+
+            console.log('🔐 Register page loaded');
+        });
+    </script>
+</body>
+
+</html>

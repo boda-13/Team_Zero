@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشروط والأحكام - Team Zero</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+    <meta name="description" content="الشروط والأحكام الخاصة باستخدام خدمات Team Zero">
+
+    <!-- ===== Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/terms.css">
+
+    <!-- ===== Libraries ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                    <span>Team <span class="highlight">Zero</span></span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="team.html">الفريق</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+
+                    <!-- ===== User Menu (Logged In) ===== -->
+                    <li class="nav-user-wrapper" id="navUserWrapper" style="display:none;">
+                        <div class="nav-user" id="navUserBtn">
+                            <div class="avatar" id="navAvatar">👤</div>
+                            <span class="name" id="navUserName">المستخدم</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>الملف الشخصي</span>
+                            </a>
+                            <a href="#" id="adminLink" style="display:none;">
+                                <i class="fas fa-cog"></i>
+                                <span>لوحة التحكم</span>
+                            </a>
+                            <div class="divider"></div>
+                            <a href="#" class="logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- ===== Auth Links (Logged Out) ===== -->
+                    <li id="authLinks">
+                        <a href="login.html" class="auth-link login-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>تسجيل الدخول</span>
+                        </a>
+                        <a href="register.html" class="auth-link register-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>إنشاء حساب</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+    TERMS PAGE
+    ======================================== -->
+    <section class="legal-page">
+        <div class="container">
+            <!-- ===== Header ===== -->
+            <div class="legal-header" data-aos="fade-up">
+                <div class="section-tag"><i class="fas fa-file-contract"></i> الشروط والأحكام</div>
+                <h1>شروط <span class="gradient-text">استخدام</span> Team Zero</h1>
+                <p>يرجى قراءة هذه الشروط والأحكام بعناية قبل استخدام خدماتنا</p>
+                <div class="last-updated">📅 آخر تحديث: 30 يونيو 2026</div>
+            </div>
+
+            <!-- ===== Table of Contents ===== -->
+            <div class="toc" data-aos="fade-up">
+                <h3><i class="fas fa-list"></i> محتويات الصفحة</h3>
+                <div class="toc-grid">
+                    <a href="#section-1"><i class="fas fa-circle"></i> قبول الشروط</a>
+                    <a href="#section-2"><i class="fas fa-circle"></i> استخدام الخدمات</a>
+                    <a href="#section-3"><i class="fas fa-circle"></i> الملكية الفكرية</a>
+                    <a href="#section-4"><i class="fas fa-circle"></i> المحتوى والسلوك</a>
+                    <a href="#section-5"><i class="fas fa-circle"></i> الدفع والاشتراكات</a>
+                    <a href="#section-6"><i class="fas fa-circle"></i> الإلغاء والاسترداد</a>
+                    <a href="#section-7"><i class="fas fa-circle"></i> الضمانات والإخلاء</a>
+                    <a href="#section-8"><i class="fas fa-circle"></i> التعديلات على الشروط</a>
+                    <a href="#section-9"><i class="fas fa-circle"></i> القانون الحاكم</a>
+                    <a href="#section-10"><i class="fas fa-circle"></i> اتصل بنا</a>
+                </div>
+            </div>
+
+            <!-- ===== Content ===== -->
+            <div class="legal-content">
+                <div class="legal-card" data-aos="fade-up" id="section-1">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-check-circle"></i></span> 1. قبول الشروط
+                    </div>
+                    <p>باستخدامك لموقع Team Zero أو أي من خدماتنا، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي جزء من هذه الشروط، يرجى عدم استخدام خدماتنا.</p>
+                    <div class="highlight-box">
+                        <p><strong>ملاحظة:</strong> هذه الشروط تشكل اتفاقية قانونية بينك وبين Team Zero. يرجى قراءتها بعناية قبل استخدام خدماتنا.</p>
+                    </div>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-2">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-rocket"></i></span> 2. استخدام الخدمات
+                    </div>
+                    <p>نقدم لك خدمات متنوعة تشمل:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>تطوير المواقع:</strong> بناء وتصميم مواقع ويب احترافية</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>التصميم:</strong> هويات بصرية، شعارات، وتصاميم جرافيكية</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>المونتاج:</strong> إنتاج فيديوهات احترافية ومونتاج</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>التسويق الرقمي:</strong> حلول تسويقية متكاملة</div>
+                        </li>
+                    </ul>
+                    <p>جميع الخدمات مقدمة بحسن نية ووفقاً للمعايير المهنية المعتمدة.</p>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-3">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-copyright"></i></span> 3. الملكية الفكرية
+                    </div>
+                    <p>جميع المحتويات المنشورة على الموقع، بما في ذلك النصوص، الصور، التصاميم، والشعارات، هي ملكية خاصة لـ Team Zero أو الجهات المرخصة لها.</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>لا يحق لك نسخ أو إعادة نشر أي محتوى دون إذن خطي مسبق.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>جميع التصاميم والمشاريع التي ننفذها لك تصبح ملكيتك بعد اكتمال الدفع.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>نحتفظ بحق عرض أعمالنا في محفظتنا إلا إذا تم الاتفاق على خلاف ذلك.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-4">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-shield-alt"></i></span> 4. المحتوى والسلوك
+                    </div>
+                    <p>أنت توافق على استخدام خدماتنا بطريقة قانونية وأخلاقية. يُمنع منعاً باتاً:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-times-circle" style="color: #ff6b6b;"></i>
+                            <div>استخدام خدماتنا لنشر محتوى غير قانوني أو ضار</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle" style="color: #ff6b6b;"></i>
+                            <div>انتحال شخصية أخرى أو تقديم معلومات كاذبة</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle" style="color: #ff6b6b;"></i>
+                            <div>محاولة اختراق أنظمتنا أو تعطيل خدماتنا</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-times-circle" style="color: #ff6b6b;"></i>
+                            <div>استخدام خدماتنا بطرق تنتهك حقوق الآخرين</div>
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>تنبيه:</strong> أي انتهاك لهذه الشروط قد يؤدي إلى إنهاء حسابك واتخاذ إجراءات قانونية.</p>
+                    </div>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-5">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-credit-card"></i></span> 5. الدفع والاشتراكات
+                    </div>
+                    <p>نقدم خطط أسعار مرنة تناسب مختلف الاحتياجات والميزانيات. يتم الدفع عبر وسائل دفع آمنة.</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>الدفع المسبق:</strong> يتم دفع قيمة الخدمة مسبقاً قبل بدء العمل.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>الاشتراكات الشهرية:</strong> تتجدد تلقائياً كل شهر ما لم يتم إلغاؤها.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>الأسعار:</strong> جميع الأسعار بالدولار الأمريكي وقد تتغير مع إشعار مسبق.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-6">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-undo"></i></span> 6. الإلغاء والاسترداد
+                    </div>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>يمكنك إلغاء اشتراكك في أي وقت من خلال لوحة التحكم الخاصة بك.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>سيتم إيقاف تجديد الاشتراك تلقائياً بعد الإلغاء.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>لا نقدم استرداداً للمبالغ المدفوعة مقابل خدمات تم تنفيذها بالفعل.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>في حال وجود مشكلة تقنية، سنعمل على حلها بأسرع وقت ممكن.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-7">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-handshake"></i></span> 7. الضمانات والإخلاء
+                    </div>
+                    <p>نقدم خدماتنا بأعلى معايير الجودة، ومع ذلك:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>لا نضمن عدم وجود أخطاء أو انقطاع في الخدمة.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>نحن غير مسؤولين عن أي أضرار ناتجة عن استخدام خدماتنا.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>نعمل دائماً على تحسين خدماتنا وتطويرها بشكل مستمر.</div>
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p><strong>ملاحظة:</strong> خدماتنا مقدمة "كما هي" بدون أي ضمانات صريحة أو ضمنية.</p>
+                    </div>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-8">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-edit"></i></span> 8. التعديلات على الشروط
+                    </div>
+                    <p>نحتفظ بحق تعديل هذه الشروط في أي وقت. سيتم إعلامك بأي تغييرات جوهرية عبر البريد الإلكتروني أو من خلال الموقع.</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>ستصبح التعديلات سارية فور نشرها على الموقع.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>استمرارك في استخدام خدماتنا يعني قبولك للشروط المعدلة.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>ننصحك بمراجعة هذه الصفحة بشكل دوري للاطلاع على أي تحديثات.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-9">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-gavel"></i></span> 9. القانون الحاكم
+                    </div>
+                    <p>تخضع هذه الشروط والأحكام وتفسر وفقاً لقوانين المملكة العربية السعودية. أي نزاع ينشأ عن هذه الشروط سيتم حله في محاكم الرياض، المملكة العربية السعودية.</p>
+                </div>
+
+                <div class="legal-card" data-aos="fade-up" id="section-10">
+                    <div class="section-title">
+                        <span class="icon"><i class="fas fa-envelope"></i></span> 10. اتصل بنا
+                    </div>
+                    <p>إذا كان لديك أي استفسار حول هذه الشروط والأحكام، يرجى التواصل معنا:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div><strong>البريد الإلكتروني:</strong> info@teamzero.com</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div><strong>الهاتف:</strong> +201203875621</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div><strong>العنوان:</strong> القاهره , مصر</div>
+                        </li>
+                    </ul>
+                    <div class="highlight-box" style="margin-top: 1.5rem;">
+                        <p>📌 <strong>شكراً لثقتك بنا!</strong> نحن ملتزمون بتقديم أفضل الخدمات لك.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                        <span>Team <span class="highlight">Zero</span></span>
+                    </a>
+                    <p>نبني المستقبل الرقمي معًا. فريق متكامل من المبدعين والخبراء.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201203875621"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@zero_team_0"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://discord.gg/NjZ9d4ZEma"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#web">تطوير المواقع</a></li>
+                        <li><a href="services.html#design">التصميم</a></li>
+                        <li><a href="services.html#video">المونتاج</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>معلومات</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html">الأسعار</a></li>
+                        <li><a href="team.html">الفريق</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>

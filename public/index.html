@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Zero - وكالة رقمية متكاملة</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+    <meta name="description" content="نبني مواقع ويب حديثة، نصمم هويات بصرية احترافية">
+    <meta name="theme-color" content="#6C3CE1">
+    <meta name="keywords" content="وكالة رقمية, تصميم, تطوير, تسويق, مونتاج, Team Zero">
+
+    <!-- ===== Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- ===== Libraries ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+</head>
+
+<body>
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                    <span>Team <span class="highlight">Zero</span></span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="team.html">الفريق</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+
+                    <!-- ===== User Menu (Logged In) ===== -->
+                    <li class="nav-user-wrapper" id="navUserWrapper" style="display:none;">
+                        <div class="nav-user" id="navUserBtn">
+                            <div class="avatar" id="navAvatar">👤</div>
+                            <span class="name" id="navUserName">المستخدم</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>الملف الشخصي</span>
+                            </a>
+                            <a href="#" id="adminLink" style="display:none;">
+                                <i class="fas fa-cog"></i>
+                                <span>لوحة التحكم</span>
+                            </a>
+                            <div class="divider"></div>
+                            <a href="#" class="logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- ===== Auth Links (Logged Out) ===== -->
+                    <li id="authLinks">
+                        <a href="login.html" class="auth-link login-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>تسجيل الدخول</span>
+                        </a>
+                        <a href="register.html" class="auth-link register-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>إنشاء حساب</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+    HERO SECTION
+    ======================================== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="hero-badge">
+                        <i class="fas fa-rocket"></i> Team Zero - وكالة رقمية متكاملة
+                    </div>
+                    <h1 class="hero-title">
+                        نبني مواقع ويب حديثة،<br>
+                        <span class="gradient-text">نصمم هويات بصرية</span><br> ونحول أفكارك إلى مشاريع ناجحة
+                    </h1>
+                    <p class="hero-description">
+                        في Team Zero، نجمع بين الإبداع والتقنية لنقدم لك حلولًا رقمية متكاملة تأخذ علامتك التجارية إلى المستوى التالي.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn-primary">
+                            <i class="fas fa-play"></i> ابدأ مشروعك
+                        </a>
+                        <a href="portfolio.html" class="btn-secondary">
+                            <i class="fas fa-eye"></i> شاهد أعمالنا
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" data-aos="fade-left">
+                    <div class="hero-3d-box">
+                        <img src="./assets/images/ZERO_2.png" alt="Team Zero" class="hero-logo-image">
+                        <div class="floating-cards">
+                            <div class="glass card-1">
+                                <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                                <span>تصميم احترافي</span>
+                            </div>
+                            <div class="glass card-2">
+                                <i class="fas fa-bolt" style="color: #FFD700;"></i>
+                                <span>أداء فائق</span>
+                            </div>
+                            <div class="glass card-3">
+                                <i class="fas fa-mobile-alt" style="color: #4A9EFF;"></i>
+                                <span>متجاوب بالكامل</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    STATS SECTION
+    ======================================== -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up">
+                    <div class="stat-number" data-count="120">0</div>
+                    <div class="stat-label">+ مشروع</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" data-count="80">0</div>
+                    <div class="stat-label">+ عميل</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">سنوات خبرة</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">% رضا العملاء</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    CTA SECTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="glass" style="padding: 4rem; text-align: center;" data-aos="fade-up">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">
+                    هل لديك <span class="gradient-text">فكرة مشروع</span>؟
+                </h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                    دعنا نساعدك في تحويل فكرتك إلى واقع ملموس. احصل على استشارة مجانية الآن.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn-primary">
+                        <i class="fas fa-play"></i> تحدث معنا الآن
+                    </a>
+                    <a href="services.html" class="btn-secondary">
+                        <i class="fas fa-arrow-left"></i> اكتشف خدماتنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                        <span>Team <span class="highlight">Zero</span></span>
+                    </a>
+                    <p>نبني المستقبل الرقمي معًا. فريق متكامل من المبدعين والخبراء في مجال التقنية والتصميم.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201203875621"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@zero_team_0"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://discord.gg/NjZ9d4ZEma"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                        <li><a href="pricing.html">الأسعار</a></li>
+                        <li><a href="team.html">الفريق</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#web">تطوير المواقع</a></li>
+                        <li><a href="services.html#design">التصميم الإبداعي</a></li>
+                        <li><a href="services.html#video">المونتاج والإنتاج</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>معلومات التواصل</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +201203875621</li>
+                        <li><i class="fas fa-envelope"></i> zeroteam136@gmail.com </li>
+                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // ========================================
+        // HOME PAGE - FULL SCRIPT
+        // ========================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ========================================
+            // 1. INITIALIZE AOS
+            // ========================================
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-cubic'
+            });
+
+            // ========================================
+            // 2. STATS COUNTER
+            // ========================================
+            const stats = document.querySelectorAll('.stat-number');
+            let statsAnimated = false;
+
+            function animateStats() {
+                if (statsAnimated) return;
+
+                stats.forEach(stat => {
+                    const target = parseInt(stat.dataset.count);
+                    let current = 0;
+                    const increment = Math.ceil(target / 50);
+                    const interval = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(interval);
+                        }
+                        stat.textContent = current;
+                    }, 30);
+                });
+
+                statsAnimated = true;
+            }
+
+            const statsSection = document.getElementById('stats');
+            if (statsSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateStats();
+                        }
+                    });
+                }, {
+                    threshold: 0.3
+                });
+                observer.observe(statsSection);
+            }
+
+            // ========================================
+            // 3. HOME PORTFOLIO
+            // ========================================
+            const homePortfolioData = [{
+                id: 1,
+                title: 'شركة تكنو',
+                category: 'web',
+                icon: '🏢',
+                description: 'موقع شركة تقنية متكامل'
+            }, {
+                id: 2,
+                title: 'متجر زيتونة',
+                category: 'web',
+                icon: '🛍️',
+                description: 'متجر إلكتروني للمنتجات الطبيعية'
+            }, {
+                id: 3,
+                title: 'هوية براند',
+                category: 'design',
+                icon: '🎯',
+                description: 'هوية بصرية متكاملة'
+            }, {
+                id: 4,
+                title: 'إعلان تسويقي',
+                category: 'video',
+                icon: '📹',
+                description: 'فيديو إعلاني احترافي'
+            }, ];
+
+            function renderHomePortfolio() {
+                const grid = document.getElementById('homePortfolioGrid');
+                if (!grid) return;
+
+                grid.innerHTML = homePortfolioData.map(item => `
+                    <div class="glass" style="padding: 1.5rem; text-align: center; transition: var(--transition);" data-aos="fade-up" data-aos-delay="${item.id * 100}">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;">${item.icon}</div>
+                        <h4>${item.title}</h4>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">${item.category === 'web' ? 'ويب' : item.category === 'design' ? 'تصميم' : 'فيديو'}</span>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.3rem;">${item.description}</p>
+                    </div>
+                `).join('');
+            }
+
+            renderHomePortfolio();
+
+            // ========================================
+            // 4. USER AUTHENTICATION UI
+            // ========================================
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user') || 'null');
+            const navUserWrapper = document.getElementById('navUserWrapper');
+            const authLinks = document.getElementById('authLinks');
+            const navUserName = document.getElementById('navUserName');
+            const navAvatar = document.getElementById('navAvatar');
+            const userDropdown = document.getElementById('userDropdown');
+            const navUserBtn = document.getElementById('navUserBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const adminLink = document.getElementById('adminLink');
+
+            function updateNavbar() {
+                if (token && user) {
+                    navUserWrapper.style.display = 'block';
+                    authLinks.style.display = 'none';
+
+                    navUserName.textContent = user.fullName || user.username || 'المستخدم';
+
+                    if (user.avatar) {
+                        navAvatar.innerHTML =
+                            `<img src="${user.avatar}" alt="Avatar" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
+                    } else {
+                        navAvatar.textContent = user.fullName ? user.fullName.charAt(0).toUpperCase() : '👤';
+                    }
+
+                    if (user.role === 'admin') {
+                        adminLink.style.display = 'flex';
+                    } else {
+                        adminLink.style.display = 'none';
+                    }
+                } else {
+                    navUserWrapper.style.display = 'none';
+                    authLinks.style.display = 'flex';
+                }
+            }
+
+            if (navUserBtn) {
+                navUserBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle('show');
+                    this.classList.toggle('active');
+                });
+            }
+
+            document.addEventListener('click', function(e) {
+                if (!navUserBtn || !navUserBtn.contains(e.target) && !userDropdown || !userDropdown.contains(e.target)) {
+                    if (userDropdown) {
+                        userDropdown.classList.remove('show');
+                    }
+                    if (navUserBtn) {
+                        navUserBtn.classList.remove('active');
+                    }
+                }
+            });
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    showNotification('👋 تم تسجيل الخروج بنجاح', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 500);
+                });
+            }
+
+            if (adminLink) {
+                adminLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'admin.html';
+                });
+            }
+
+            updateNavbar();
+
+            function showNotification(message, type = 'success') {
+                const existing = document.querySelector('.notification');
+                if (existing) existing.remove();
+
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 90px;
+                    right: 20px;
+                    padding: 1rem 2rem;
+                    border-radius: var(--radius-sm);
+                    background: ${type === 'success' ? 'var(--gradient-main)' : '#ff6b6b'};
+                    color: white;
+                    font-weight: 600;
+                    max-width: 400px;
+                    z-index: 9999;
+                    animation: slideDown 0.5s ease;
+                    box-shadow: var(--shadow-glow);
+                    font-family: var(--font-arabic);
+                    display: flex;
+                    align-items: center;
+                    gap: 0.8rem;
+                `;
+                notification.innerHTML = `
+                    <span>${message}</span>
+                    <button style="background:none;border:none;color:white;cursor:pointer;font-size:1.2rem;margin-right:auto;" onclick="this.parentElement.remove()">✕</button>
+                `;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateY(-20px)';
+                    setTimeout(() => notification.remove(), 300);
+                }, 5000);
+            }
+
+            // ========================================
+            // 5. NAVBAR SCROLL EFFECT
+            // ========================================
+            const navbar = document.getElementById('navbar');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScroll = currentScroll;
+            });
+
+            // ========================================
+            // 6. MOBILE MENU
+            // ========================================
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // ========================================
+            // 7. BACK TO TOP BUTTON
+            // ========================================
+            const backToTop = document.createElement('button');
+            backToTop.className = 'back-to-top';
+            backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            document.body.appendChild(backToTop);
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            console.log('🚀 Team Zero - Homepage Loaded Successfully');
+            console.log('👤 User:', user ? user.fullName || user.username : 'Guest');
+            console.log('🔐 Status:', token ? 'Logged In' : 'Logged Out');
+        });
+    </script>
+</body>
+
+</html>

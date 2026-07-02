@@ -1,0 +1,94 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "شركة تكنو",
+      "category": "web",
+      "description": "موقع شركة تقنية متكامل",
+      "image": "assets/images/portfolio/techco.jpg"
+    },
+    {
+      "id": 2,
+      "title": "متجر زيتونة",
+      "category": "web",
+      "description": "متجر إلكتروني للمنتجات الطبيعية",
+      "image": "assets/images/portfolio/olive.jpg"
+    },
+    {
+      "id": 3,
+      "title": "هوية براند",
+      "category": "design",
+      "description": "هوية بصرية متكاملة لعلامة تجارية",
+      "image": "assets/images/portfolio/brand.jpg"
+    },
+    {
+      "id": 4,
+      "title": "إعلان تسويقي",
+      "category": "video",
+      "description": "فيديو إعلاني احترافي",
+      "image": "assets/images/portfolio/ad.jpg"
+    }
+  ],
+  "team": [
+    {
+      "id": 1,
+      "name": "أحمد محمد",
+      "role": "المدير التنفيذي",
+      "image": "assets/images/team/ahmed.jpg"
+    },
+    {
+      "id": 2,
+      "name": "سارة خالد",
+      "role": "مصممة UI/UX",
+      "image": "assets/images/team/sara.jpg"
+    },
+    {
+      "id": 3,
+      "name": "محمد علي",
+      "role": "مطور Full Stack",
+      "image": "assets/images/team/mohamed.jpg"
+    },
+    {
+      "id": 4,
+      "name": "نورا إبراهيم",
+      "role": "مونتير ومخرج",
+      "image": "assets/images/team/nora.jpg"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "تطوير المواقع",
+      "description": "بناء مواقع احترافية متجاوبة بأحدث التقنيات",
+      "icon": "💻"
+    },
+    {
+      "id": 2,
+      "name": "التصميم الإبداعي",
+      "description": "هويات بصرية وتصاميم مميزة تعكس شخصية علامتك",
+      "icon": "🎨"
+    },
+    {
+      "id": 3,
+      "name": "المونتاج والإنتاج",
+      "description": "محتوى بصري احترافي يجذب الجمهور",
+      "icon": "🎬"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "name": "خالد العتيبي",
+      "email": "khalid@example.com",
+      "phone": "0550000000",
+      "service": "تطوير مواقع",
+      "message": "أحتاج موقع لشركتي",
+      "date": "2026-06-30T10:00:00.000Z"
+    }
+  ],
+  "analytics": {
+    "visits": 0,
+    "pageViews": {},
+    "lastVisit": null
+  }
+}

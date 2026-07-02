@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - Team Zero</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="auth-page">
+        <div class="auth-box">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                <span>Team Zero</span>
+            </a>
+
+            <h2>مرحباً بك 👋</h2>
+            <p class="subtitle">سجل الدخول للمتابعة والاستفادة من خدماتنا</p>
+
+            <div class="alert" id="alert">
+                <i class="fas fa-info-circle"></i>
+                <span id="alertMessage">رسالة التنبيه</span>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required autocomplete="email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="أدخل كلمة المرور" required autocomplete="current-password">
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="remember"> تذكرني
+                    </label>
+                    <a href="forgot-password.html">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button type="submit" class="btn-login" id="loginBtn">
+                    <span class="btn-text"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</span>
+                    <span class="spinner"></span>
+                </button>
+            </form>
+
+            <div class="social-login">
+                <div class="divider">أو سجل الدخول بواسطة</div>
+                <div class="social-buttons">
+                    <a href="#" class="google" title="Google">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="github" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="discord" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // LOGIN FUNCTIONALITY
+        // ========================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const loginForm = document.getElementById('loginForm');
+            const loginBtn = document.getElementById('loginBtn');
+            const alert = document.getElementById('alert');
+            const alertMessage = document.getElementById('alertMessage');
+
+            function showAlert(message, type = 'error') {
+                alert.className = 'alert ' + type;
+                alertMessage.textContent = message;
+                clearTimeout(alert._timeout);
+                alert._timeout = setTimeout(() => {
+                    alert.className = 'alert';
+                }, 5000);
+            }
+
+            function hideAlert() {
+                alert.className = 'alert';
+                clearTimeout(alert._timeout);
+            }
+
+            function setLoading(loading) {
+                if (loading) {
+                    loginBtn.classList.add('loading');
+                    loginBtn.disabled = true;
+                } else {
+                    loginBtn.classList.remove('loading');
+                    loginBtn.disabled = false;
+                }
+            }
+
+            loginForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                hideAlert();
+
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                const remember = document.getElementById('remember').checked;
+
+                if (!email || !password) {
+                    showAlert('❌ يرجى إدخال البريد الإلكتروني وكلمة المرور', 'error');
+                    return;
+                }
+
+                if (!email.includes('@') || !email.includes('.')) {
+                    showAlert('❌ البريد الإلكتروني غير صحيح', 'error');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showAlert('❌ كلمة المرور يجب أن تكون 6 أحرف على الأقل', 'error');
+                    return;
+                }
+
+                setLoading(true);
+
+                try {
+                    const response = await fetch('/api/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        localStorage.setItem('token', data.token);
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                        if (remember) {
+                            localStorage.setItem('rememberMe', 'true');
+                        }
+
+                        showAlert('✅ تم تسجيل الدخول بنجاح! جاري التحويل...', 'success');
+                        setLoading(false);
+
+                        setTimeout(() => {
+                            if (data.user.role === 'admin') {
+                                window.location.href = 'admin.html';
+                            } else {
+                                window.location.href = 'index.html';
+                            }
+                        }, 1000);
+                    } else {
+                        showAlert('❌ ' + (data.error || 'فشل تسجيل الدخول'), 'error');
+                        setLoading(false);
+                    }
+                } catch (error) {
+                    showAlert('❌ حدث خطأ أثناء تسجيل الدخول', 'error');
+                    setLoading(false);
+                }
+            });
+
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', hideAlert);
+            });
+
+            console.log('🔐 Login page loaded');
+        });
+    </script>
+</body>
+
+</html>

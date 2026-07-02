@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخدمات - Team Zero</title>
+    <meta name="description" content="خدماتنا الرقمية المتكاملة">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ===== Navigation ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                    <span>Team <span class="highlight">Zero</span></span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="team.html">الفريق</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+
+                    <!-- ===== User Menu (Logged In) ===== -->
+                    <li class="nav-user-wrapper" id="navUserWrapper" style="display:none;">
+                        <div class="nav-user" id="navUserBtn">
+                            <div class="avatar" id="navAvatar">👤</div>
+                            <span class="name" id="navUserName">المستخدم</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>الملف الشخصي</span>
+                            </a>
+                            <a href="#" id="adminLink" style="display:none;">
+                                <i class="fas fa-cog"></i>
+                                <span>لوحة التحكم</span>
+                            </a>
+                            <div class="divider"></div>
+                            <a href="#" class="logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- ===== Auth Links (Logged Out) ===== -->
+                    <li id="authLinks">
+                        <a href="login.html" class="auth-link login-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>تسجيل الدخول</span>
+                        </a>
+                        <a href="register.html" class="auth-link register-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>إنشاء حساب</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Page Header ===== -->
+    <section class="page-header" style="padding: 140px 0 60px; background: var(--darker);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag"><i class="fas fa-cogs"></i> خدماتنا</div>
+                <h1 class="section-title">ما <span class="gradient-text">نقدمه</span> لك</h1>
+                <p class="section-subtitle">نقدم مجموعة متكاملة من الخدمات الرقمية لتنمية أعمالك</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Services Section ===== -->
+    <section style="padding: 60px 0 100px;">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Service 1: Web Development -->
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="100" id="web">
+                    <div class="service-icon">💻</div>
+                    <h3>تطوير المواقع</h3>
+                    <p>نبني مواقع احترافية متجاوبة بأحدث التقنيات</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> مواقع شركات - تصميم عصري يعكس هوية علامتك التجارية</li>
+                        <li><i class="fas fa-check"></i> متاجر إلكترونية - منصة تسوق متكاملة مع أنظمة دفع آمنة</li>
+                        <li><i class="fas fa-check"></i> لوحات تحكم - أنظمة إدارة متقدمة لتحكم كامل في محتواك</li>
+                        <li><i class="fas fa-check"></i> أنظمة مخصصة - حلول برمجية حسب احتياجاتك الخاصة</li>
+                    </ul>
+                    <a href="contact.html" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+
+                <!-- Service 2: Design -->
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="200" id="design">
+                    <div class="service-icon">🎨</div>
+                    <h3>التصميم الإبداعي</h3>
+                    <p>نصمم هويات بصرية مميزة تعكس شخصية علامتك</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Logo Design - شعارات فريدة تعبر عن هويتك</li>
+                        <li><i class="fas fa-check"></i> Brand Identity - هوية بصرية متكاملة للعلامة التجارية</li>
+                        <li><i class="fas fa-check"></i> Social Media - تصاميم جذابة لمنصات التواصل الاجتماعي</li>
+                        <li><i class="fas fa-check"></i> UI/UX - تجارب مستخدم احترافية وسهلة الاستخدام</li>
+                    </ul>
+                    <a href="contact.html" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+
+                <!-- Service 3: Video Editing -->
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="300" id="video">
+                    <div class="service-icon">🎬</div>
+                    <h3>المونتاج والإنتاج</h3>
+                    <p>ننتج محتوى بصري احترافي يجذب الجمهور</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Gaming Montage - مونتاج احترافي لمحتوى الألعاب</li>
+                        <li><i class="fas fa-check"></i> Reels & Shorts - مقاطع فيديو قصيرة جذابة</li>
+                        <li><i class="fas fa-check"></i> YouTube Videos - إنتاج فيديوهات احترافية لليوتيوب</li>
+                        <li><i class="fas fa-check"></i> Motion Graphics - رسومات متحركة احترافية</li>
+                    </ul>
+                    <a href="contact.html" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div style="margin-top: 4rem;">
+                <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem;">كيف <span class="gradient-text">نعمل</span></h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                    <div class="glass" style="padding: 2rem; text-align: center;" data-aos="fade-up">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💡</div>
+                        <h3>الفكرة</h3>
+                        <p style="color: var(--text-secondary);">نستمع لفكرتك ونحلل احتياجاتك</p>
+                    </div>
+                    <div class="glass" style="padding: 2rem; text-align: center;" data-aos="fade-up" data-aos-delay="100">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+                        <h3>التخطيط</h3>
+                        <p style="color: var(--text-secondary);">نضع خطة عمل متكاملة للمشروع</p>
+                    </div>
+                    <div class="glass" style="padding: 2rem; text-align: center;" data-aos="fade-up" data-aos-delay="200">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+                        <h3>التصميم</h3>
+                        <p style="color: var(--text-secondary);">نصمم تجربة بصرية مميزة</p>
+                    </div>
+                    <div class="glass" style="padding: 2rem; text-align: center;" data-aos="fade-up" data-aos-delay="300">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                        <h3>التطوير</h3>
+                        <p style="color: var(--text-secondary);">نبني مشروعك بأحدث التقنيات</p>
+                    </div>
+                    <div class="glass" style="padding: 2rem; text-align: center;" data-aos="fade-up" data-aos-delay="400">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                        <h3>الإطلاق</h3>
+                        <p style="color: var(--text-secondary);">نطلق مشروعك ونقدم الدعم المستمر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section style="padding: 80px 0; background: var(--darker);">
+        <div class="container">
+            <div class="glass" style="padding: 4rem; text-align: center;" data-aos="fade-up">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">جاهز لبدء <span class="gradient-text">مشروعك</span>؟</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+                    تواصل معنا اليوم واحصل على استشارة مجانية
+                </p>
+                <a href="contact.html" class="btn-primary">
+                    <i class="fas fa-play"></i> تواصل معنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                        <span>Team <span class="highlight">Zero</span></span>
+                    </a>
+                    <p>نبني المستقبل الرقمي معًا.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201203875621"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@zero_team_0"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://discord.gg/NjZ9d4ZEma"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#web">تطوير المواقع</a></li>
+                        <li><a href="services.html#design">التصميم</a></li>
+                        <li><a href="services.html#video">المونتاج</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>معلومات</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html">الأسعار</a></li>
+                        <li><a href="team.html">الفريق</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

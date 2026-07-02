@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسعار - Team Zero</title>
+    <meta name="description" content="خطط أسعارنا المناسبة لجميع الاحتياجات">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pricing.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ===== Navigation ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                    <span>Team <span class="highlight">Zero</span></span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="team.html">الفريق</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+
+                    <!-- ===== User Menu (Logged In) ===== -->
+                    <li class="nav-user-wrapper" id="navUserWrapper" style="display:none;">
+                        <div class="nav-user" id="navUserBtn">
+                            <div class="avatar" id="navAvatar">👤</div>
+                            <span class="name" id="navUserName">المستخدم</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>الملف الشخصي</span>
+                            </a>
+                            <a href="#" id="adminLink" style="display:none;">
+                                <i class="fas fa-cog"></i>
+                                <span>لوحة التحكم</span>
+                            </a>
+                            <div class="divider"></div>
+                            <a href="#" class="logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- ===== Auth Links (Logged Out) ===== -->
+                    <li id="authLinks">
+                        <a href="login.html" class="auth-link login-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>تسجيل الدخول</span>
+                        </a>
+                        <a href="register.html" class="auth-link register-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>إنشاء حساب</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Page Header ===== -->
+    <section class="page-header" style="padding: 140px 0 60px; background: var(--darker);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag"><i class="fas fa-tags"></i> الأسعار</div>
+                <h1 class="section-title">اختر <span class="gradient-text">الباقة المناسبة</span></h1>
+                <p class="section-subtitle">نقدم خطط مرنة تناسب جميع احتياجاتك وميزانيتك</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Pricing ===== -->
+    <section style="padding: 60px 0 100px;">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Starter -->
+                <div class="pricing-card glass" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Starter</h3>
+                    <div class="pricing-price">$299 <span>/ شهريًا</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> موقع احترافي</li>
+                        <li><i class="fas fa-check"></i> تصميم متجاوب</li>
+                        <li><i class="fas fa-check"></i> 5 صفحات</li>
+                        <li><i class="fas fa-check"></i> دعم فني</li>
+                        <li><i class="fas fa-check"></i> تحديثات شهرية</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary" style="width: 100%; justify-content: center;">
+                        اطلب الآن
+                    </a>
+                </div>
+
+                <!-- Business -->
+                <div class="pricing-card glass featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-badge">الأكثر طلبًا</div>
+                    <h3>Business</h3>
+                    <div class="pricing-price">$599 <span>/ شهريًا</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> موقع متكامل</li>
+                        <li><i class="fas fa-check"></i> تصميم احترافي</li>
+                        <li><i class="fas fa-check"></i> 15 صفحة</li>
+                        <li><i class="fas fa-check"></i> متجر إلكتروني</li>
+                        <li><i class="fas fa-check"></i> دعم 24/7</li>
+                        <li><i class="fas fa-check"></i> تحسين SEO</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary" style="width: 100%; justify-content: center;">
+                        اطلب الآن
+                    </a>
+                </div>
+
+                <!-- Premium -->
+                <div class="pricing-card glass" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Premium</h3>
+                    <div class="pricing-price">$999 <span>/ شهريًا</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> موقع مخصص</li>
+                        <li><i class="fas fa-check"></i> هوية بصرية كاملة</li>
+                        <li><i class="fas fa-check"></i> غير محدود صفحات</li>
+                        <li><i class="fas fa-check"></i> منصة متكاملة</li>
+                        <li><i class="fas fa-check"></i> دعم VIP</li>
+                        <li><i class="fas fa-check"></i> استضافة مجانية</li>
+                        <li><i class="fas fa-check"></i> تسويق رقمي</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary" style="width: 100%; justify-content: center;">
+                        اطلب الآن
+                    </a>
+                </div>
+            </div>
+
+            <!-- FAQ Note -->
+            <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+                <p style="color: var(--text-muted);">
+                    <i class="fas fa-question-circle"></i> جميع الباقات قابلة للتخصيص حسب احتياجاتك
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                        <span>Team <span class="highlight">Zero</span></span>
+                    </a>
+                    <p>نبني المستقبل الرقمي معًا.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201203875621"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@zero_team_0"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://discord.gg/NjZ9d4ZEma"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">تطوير المواقع</a></li>
+                        <li><a href="services.html">التصميم</a></li>
+                        <li><a href="services.html">المونتاج</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>معلومات</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html">الأسعار</a></li>
+                        <li><a href="team.html">الفريق</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

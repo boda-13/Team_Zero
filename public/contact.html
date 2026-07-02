@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - Team Zero</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+    <meta name="description" content="تواصل مع فريق Team Zero لبدء مشروعك">
+    <meta name="theme-color" content="#6C3CE1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/contact.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ========================================
+    NAVIGATION
+    ======================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                    <span>Team <span class="highlight">Zero</span></span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="team.html">الفريق</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل
+                                معنا</a></li>
+
+                    <!-- ===== User Menu (Logged In) ===== -->
+                    <li class="nav-user-wrapper" id="navUserWrapper" style="display:none;">
+                        <div class="nav-user" id="navUserBtn">
+                            <div class="avatar" id="navAvatar">👤</div>
+                            <span class="name" id="navUserName">المستخدم</span>
+                            <i class="fas fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>الملف الشخصي</span>
+                            </a>
+                            <a href="#" id="adminLink" style="display:none;">
+                                <i class="fas fa-cog"></i>
+                                <span>لوحة التحكم</span>
+                            </a>
+                            <div class="divider"></div>
+                            <a href="#" class="logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- ===== Auth Links (Logged Out) ===== -->
+                    <li id="authLinks">
+                        <a href="login.html" class="auth-link login-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>تسجيل الدخول</span>
+                        </a>
+                        <a href="register.html" class="auth-link register-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>إنشاء حساب</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+    PAGE HEADER
+    ======================================== -->
+    <section class="contact-header">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag"><i class="fas fa-envelope"></i> تواصل معنا</div>
+                <h1 class="section-title">هيا <span class="gradient-text">نبدأ مشروعك</span></h1>
+                <p class="section-subtitle">نحن هنا لمساعدتك، تواصل معنا وسنرد عليك في أقرب وقت</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    CONTACT SECTION
+    ======================================== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- ===== Contact Form ===== -->
+                <div class="contact-form-wrapper" data-aos="fade-up">
+                    <h3>📨 أرسل رسالتك</h3>
+                    <p class="form-subtitle">املأ النموذج وسنتواصل معك في أقرب وقت</p>
+
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <!-- Name -->
+                        <div class="form-group" id="nameGroup">
+                            <label for="contactName">
+                                    الاسم الكامل <span class="required">*</span>
+                                </label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="contactName" placeholder="أدخل اسمك الكامل" required minlength="2" maxlength="100">
+                            </div>
+                            <span class="error-message" id="nameError">الاسم
+                                    مطلوب (حرفين على الأقل)</span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group" id="emailGroup">
+                            <label for="contactEmail">
+                                    البريد الإلكتروني <span
+                                        class="required">*</span>
+                                </label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="contactEmail" placeholder="أدخل بريدك الإلكتروني" required>
+                            </div>
+                            <span class="error-message" id="emailError">البريد الإلكتروني غير
+                                    صحيح</span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group" id="phoneGroup">
+                            <label for="contactPhone">رقم الهاتف</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="contactPhone" placeholder="أدخل رقم هاتفك" pattern="[\+\d\s\-\(\)]{7,20}">
+                            </div>
+                            <span class="error-message" id="phoneError">رقم
+                                    الهاتف غير صحيح</span>
+                        </div>
+
+                        <!-- Service -->
+                        <div class="form-group" id="serviceGroup">
+                            <label for="contactService">الخدمة
+                                    المطلوبة</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-cogs"></i>
+                                <select id="contactService">
+                                        <option value>اختر الخدمة</option>
+                                        <option value="web">تطوير
+                                            المواقع</option>
+                                        <option value="design">التصميم
+                                            الإبداعي</option>
+                                        <option value="video">المونتاج
+                                            والإنتاج</option>
+                                        <option value="marketing">التسويق
+                                            الرقمي</option>
+                                        <option value="consulting">استشارة
+                                            تقنية</option>
+                                        <option value="other">أخرى</option>
+                                    </select>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group" id="messageGroup">
+                            <label for="contactMessage">
+                                    الرسالة <span class="required">*</span>
+                                </label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-comment"></i>
+                                <textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required minlength="10" maxlength="5000"></textarea>
+                            </div>
+                            <span class="error-message" id="messageError">الرسالة مطلوبة (10 أحرف
+                                    على الأقل)</span>
+                            <div style="text-align: left; color: var(--text-muted); font-size: 0.75rem; margin-top: 0.3rem;">
+                                <span id="charCount">0</span> / 5000
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                                <span class="btn-text"><i
+                                        class="fas fa-paper-plane"></i> إرسال
+                                    الرسالة</span>
+                                <span class="spinner"></span>
+                            </button>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div class="contact-success" id="contactSuccess">
+                        <span class="success-icon">✅</span>
+                        <h3>تم إرسال رسالتك!</h3>
+                        <p>شكراً لتواصلك معنا. سنقوم بالرد عليك في أقرب وقت.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ===== Contact Info ===== -->
+                <div class="contact-info-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <h3>📞 معلومات التواصل</h3>
+                    <p class="info-subtitle">تواصل معنا عبر القنوات التالية
+                    </p>
+
+                    <!-- Address -->
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <div class="label">العنوان</div>
+                            <div class="value">القاهرة، مصر</div>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div class="info-content">
+                            <div class="label">الهاتف</div>
+                            <div class="value">
+                                <a href="tel:+201203875621">+20 120 387
+                                        5621</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-content">
+                            <div class="label">البريد الإلكتروني</div>
+                            <div class="value">
+                                <a href="mailto:zeroteam136@gmail.com">zeroteam136@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Working Hours -->
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div class="info-content">
+                            <div class="label">ساعات العمل</div>
+                            <div class="value">جميع الأيام - 24 ساعة</div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="contact-social">
+                        <span class="social-label">تابعنا على</span>
+                        <div class="social-icons">
+                            <a href="https://wa.me/+201203875621"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.tiktok.com/@zero_team_0"><i
+                                        class="fab fa-tiktok"></i></a>
+                            <a href="https://discord.gg/NjZ9d4ZEma"><i
+                                        class="fab fa-discord"></i></a>
+                            <a href="#" class="youtube" title="YouTube" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    WHATSAPP FLOAT
+    ======================================== -->
+    <a href="https://wa.me/201203875621" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
+                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                        <span>Team <span
+                                    class="highlight">Zero</span></span>
+                    </a>
+                    <p>نبني المستقبل الرقمي معًا. فريق متكامل من المبدعين والخبراء في مجال التقنية والتصميم.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201203875621"><i
+                                    class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@zero_team_0"><i
+                                    class="fab fa-tiktok"></i></a>
+                        <a href="https://discord.gg/NjZ9d4ZEma"><i
+                                    class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                        <li><a href="pricing.html">الأسعار</a></li>
+                        <li><a href="team.html">الفريق</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#web">تطوير
+                                    المواقع</a></li>
+                        <li><a href="services.html#design">التصميم
+                                    الإبداعي</a></li>
+                        <li><a href="services.html#video">المونتاج
+                                    والإنتاج</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>معلومات التواصل</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +20 120 387 5621
+                        </li>
+                        <li><i class="fas fa-envelope"></i> zeroteam136@gmail.com
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // ========================================
+        // CONTACT PAGE - FULL FUNCTIONALITY
+        // ========================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ========================================
+            // 1. INITIALIZE AOS
+            // ========================================
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-cubic'
+            });
+
+            // ========================================
+            // 2. USER AUTHENTICATION UI
+            // ========================================
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user') || 'null');
+            const navUserWrapper = document.getElementById('navUserWrapper');
+            const authLinks = document.getElementById('authLinks');
+            const navUserName = document.getElementById('navUserName');
+            const navAvatar = document.getElementById('navAvatar');
+            const userDropdown = document.getElementById('userDropdown');
+            const navUserBtn = document.getElementById('navUserBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const adminLink = document.getElementById('adminLink');
+
+            function updateNavbar() {
+                if (token && user) {
+                    navUserWrapper.style.display = 'block';
+                    authLinks.style.display = 'none';
+                    navUserName.textContent = user.fullName || user.username || 'المستخدم';
+                    navAvatar.textContent = user.fullName ? user.fullName.charAt(0).toUpperCase() : '👤';
+                    adminLink.style.display = user.role === 'admin' ? 'flex' : 'none';
+                } else {
+                    navUserWrapper.style.display = 'none';
+                    authLinks.style.display = 'flex';
+                }
+            }
+            updateNavbar();
+
+            if (navUserBtn) {
+                navUserBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle('show');
+                    this.classList.toggle('active');
+                });
+            }
+
+            document.addEventListener('click', function(e) {
+                if (!navUserBtn || !navUserBtn.contains(e.target) && !userDropdown || !userDropdown.contains(e.target)) {
+                    if (userDropdown) {
+                        userDropdown.classList.remove('show');
+                    }
+                    if (navUserBtn) {
+                        navUserBtn.classList.remove('active');
+                    }
+                }
+            });
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    showNotification('👋 تم تسجيل الخروج بنجاح', 'success');
+                    setTimeout(() => window.location.href = 'index.html', 500);
+                });
+            }
+
+            if (adminLink) {
+                adminLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'admin.html';
+                });
+            }
+
+            // ========================================
+            // 3. MOBILE MENU
+            // ========================================
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // ========================================
+            // 4. CONTACT FORM
+            // ========================================
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successDiv = document.getElementById('contactSuccess');
+
+            // ===== Character Counter =====
+            const messageInput = document.getElementById('contactMessage');
+            const charCount = document.getElementById('charCount');
+
+            if (messageInput) {
+                messageInput.addEventListener('input', function() {
+                    charCount.textContent = this.value.length;
+                    if (this.value.length > 5000) {
+                        this.value = this.value.substring(0, 5000);
+                        charCount.textContent = 5000;
+                    }
+                });
+            }
+
+            // ===== Real-time Validation =====
+            const fields = {
+                name: {
+                    input: document.getElementById('contactName'),
+                    group: document.getElementById('nameGroup'),
+                    error: document.getElementById('nameError'),
+                    validate: function(value) {
+                        return value.trim().length >= 2;
+                    },
+                    message: 'الاسم مطلوب (حرفين على الأقل)'
+                },
+                email: {
+                    input: document.getElementById('contactEmail'),
+                    group: document.getElementById('emailGroup'),
+                    error: document.getElementById('emailError'),
+                    validate: function(value) {
+                        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+                    },
+                    message: 'البريد الإلكتروني غير صحيح'
+                },
+                phone: {
+                    input: document.getElementById('contactPhone'),
+                    group: document.getElementById('phoneGroup'),
+                    error: document.getElementById('phoneError'),
+                    validate: function(value) {
+                        if (!value.trim()) return true;
+                        return /^[\+\d\s\-\(\)]{7,20}$/.test(value.trim());
+                    },
+                    message: 'رقم الهاتف غير صحيح'
+                },
+                message: {
+                    input: document.getElementById('contactMessage'),
+                    group: document.getElementById('messageGroup'),
+                    error: document.getElementById('messageError'),
+                    validate: function(value) {
+                        return value.trim().length >= 10;
+                    },
+                    message: 'الرسالة مطلوبة (10 أحرف على الأقل)'
+                }
+            };
+
+            // Add validation listeners
+            Object.values(fields).forEach(field => {
+                if (field.input) {
+                    field.input.addEventListener('blur', function() {
+                        validateField(field);
+                    });
+                    field.input.addEventListener('input', function() {
+                        if (field.group.classList.contains('error') || field.group.classList.contains(
+                                'success')) {
+                            validateField(field);
+                        }
+                    });
+                }
+            });
+
+            function validateField(field) {
+                const value = field.input.value;
+                const isValid = field.validate(value);
+
+                field.group.classList.remove('error', 'success');
+
+                if (value.trim() && isValid) {
+                    field.group.classList.add('success');
+                } else if (value.trim() && !isValid) {
+                    field.group.classList.add('error');
+                    field.error.textContent = field.message;
+                }
+
+                return isValid;
+            }
+
+            function validateForm() {
+                let isValid = true;
+                Object.values(fields).forEach(field => {
+                    if (field.input && field.input.hasAttribute('required')) {
+                        const isFieldValid = validateField(field);
+                        if (!isFieldValid) isValid = false;
+                    }
+                });
+                return isValid;
+            }
+
+            // ===== Submit Form =====
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                if (!validateForm()) {
+                    showNotification('❌ يرجى تصحيح الأخطاء في النموذج', 'error');
+                    return;
+                }
+
+                // Collect data
+                const data = {
+                    name: document.getElementById('contactName').value.trim(),
+                    email: document.getElementById('contactEmail').value.trim(),
+                    phone: document.getElementById('contactPhone').value.trim(),
+                    service: document.getElementById('contactService').value || 'عام',
+                    message: document.getElementById('contactMessage').value.trim()
+                };
+
+                // Loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            ...(token && {
+                                'Authorization': `Bearer ${token}`
+                            })
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Show success
+                        form.style.display = 'none';
+                        successDiv.style.display = 'block';
+                        showNotification('✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.', 'success');
+                    } else {
+                        showNotification('❌ ' + (result.error || 'فشل إرسال الرسالة'), 'error');
+                    }
+                } catch (error) {
+                    console.error('Contact error:', error);
+                    showNotification('❌ حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.', 'error');
+                } finally {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                }
+            });
+
+            // ========================================
+            // 5. NOTIFICATION SYSTEM
+            // ========================================
+            function showNotification(message, type = 'success') {
+                const existing = document.querySelector('.contact-notification');
+                if (existing) existing.remove();
+
+                const notification = document.createElement('div');
+                notification.className = `contact-notification ${type}`;
+                notification.innerHTML = `
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                    <span>${message}</span>
+                    <button class="close-notification" onclick="this.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.style.opacity = '0';
+                        notification.style.transform = 'translateY(20px)';
+                        setTimeout(() => notification.remove(), 300);
+                    }
+                }, 5000);
+            }
+
+            // ========================================
+            // 6. NAVBAR SCROLL EFFECT
+            // ========================================
+            const navbar = document.getElementById('navbar');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScroll = currentScroll;
+            });
+
+            // ========================================
+            // 7. BACK TO TOP BUTTON
+            // ========================================
+            const backToTop = document.createElement('button');
+            backToTop.className = 'back-to-top';
+            backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            backToTop.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: var(--gradient-main);
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(20px);
+                box-shadow: var(--shadow-glow);
+                z-index: 999;
+            `;
+            document.body.appendChild(backToTop);
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.opacity = '1';
+                    backToTop.style.visibility = 'visible';
+                    backToTop.style.transform = 'translateY(0)';
+                } else {
+                    backToTop.style.opacity = '0';
+                    backToTop.style.visibility = 'hidden';
+                    backToTop.style.transform = 'translateY(20px)';
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // ========================================
+            // 8. KEYBOARD SHORTCUTS
+            // ========================================
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    if (document.activeElement && document.activeElement.tagName === 'TEXTAREA') {
+                        form.dispatchEvent(new Event('submit'));
+                    }
+                }
+            });
+
+            console.log('📬 Contact page loaded successfully');
+            console.log('👤 User:', user ? user.fullName || user.username : 'Guest');
+            console.log('🔐 Status:', token ? 'Logged In' : 'Logged Out');
+        });
+    </script>
+</body>
+
+</html>

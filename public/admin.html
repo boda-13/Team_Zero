@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - Team Zero</title>
+    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+    ADMIN DASHBOARD
+    ============================================================ -->
+    <div id="dashboard " style="display: flex; flex-direction: column; ">
+
+        <!-- ===== Sidebar ===== -->
+        <aside class="sidebar ">
+            <a href="# " class="logo ">
+                <div class="logo-icon "><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+                <span>Team Zero</span>
+            </a>
+
+            <ul class="sidebar-menu ">
+                <li><a href="# " class="active " data-section="dashboard "><i class="fas fa-chart-pie "></i> <span>لوحة التحكم</span></a></li>
+                <li><a href="# " data-section="analytics "><i class="fas fa-chart-line "></i> <span>التحليلات</span></a></li>
+                <li><a href="# " data-section="projects "><i class="fas fa-folder-open "></i> <span>المشاريع</span> <span class="badge " id="badgeProjects ">0</span></a></li>
+                <li><a href="# " data-section="services "><i class="fas fa-cogs "></i> <span>الخدمات</span> <span class="badge " id="badgeServices ">0</span></a></li>
+                <li><a href="# " data-section="team "><i class="fas fa-users "></i> <span>الفريق</span> <span class="badge " id="badgeTeam ">0</span></a></li>
+                <li><a href="# " data-section="users "><i class="fas fa-user-cog "></i> <span>المستخدمين</span> <span class="badge " id="badgeUsers ">0</span></a></li>
+                <li><a href="# " data-section="orders "><i class="fas fa-shopping-cart "></i> <span>الطلبات</span> <span class="badge " id="badgeOrders ">0</span></a></li>
+                <li><a href="# " data-section="messages "><i class="fas fa-envelope "></i> <span>الرسائل</span> <span class="badge " id="badgeMessages ">0</span></a></li>
+                <li><a href="# " data-section="reviews "><i class="fas fa-star "></i> <span>التقييمات</span> <span class="badge " id="badgeReviews ">0</span></a></li>
+                <li><a href="# " data-section="settings "><i class="fas fa-cog "></i> <span>الإعدادات</span></a></li>
+            </ul>
+        </aside>
+
+        <!-- ===== Main Content ===== -->
+        <main class="main-content ">
+
+            <!-- ===== Header ===== -->
+            <header class="admin-header ">
+                <div class="header-left ">
+                    <h1 id="pageTitle ">لوحة التحكم</h1>
+                    <a href="index.html " class="back-to-site ">
+                        <i class="fas fa-arrow-right "></i> العودة للموقع
+                    </a>
+                </div>
+                <div class="header-right ">
+                    <button class="btn-export " onclick="refreshData() ">
+                        <i class="fas fa-sync-alt "></i> تحديث
+                    </button>
+                    <div class="user ">
+                        <div class="avatar " id="adminAvatar ">A</div>
+                        <span id="adminName ">مدير النظام</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ============================================================
+            SECTION: DASHBOARD
+            ============================================================ -->
+            <div class="admin-section active " id="section-dashboard ">
+
+                <div class="admin-stats " id="statsContainer ">
+                    <div class="stat-card ">
+                        <div class="number " id="statUsers ">0</div>
+                        <div class="label ">👥 المستخدمين</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="statProjects ">0</div>
+                        <div class="label ">📁 المشاريع</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="statServices ">0</div>
+                        <div class="label ">⚙️ الخدمات</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="statTeam ">0</div>
+                        <div class="label ">👤 أعضاء الفريق</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="statOrders ">0</div>
+                        <div class="label ">📦 الطلبات</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="statMessages ">0</div>
+                        <div class="label ">✉️ الرسائل</div>
+                    </div>
+                </div>
+
+                <div class="quick-actions ">
+                    <a href="# " class="quick-action " onclick="switchSection( 'analytics') ">
+                        <div class="icon "><i class="fas fa-chart-bar "></i></div>
+                        <div class="label ">عرض التحليلات</div>
+                    </a>
+                    <a href="# " class="quick-action " onclick="openModal( 'project') ">
+                        <div class="icon "><i class="fas fa-plus-circle "></i></div>
+                        <div class="label ">إضافة مشروع</div>
+                    </a>
+                    <a href="# " class="quick-action " onclick="openModal( 'service') ">
+                        <div class="icon "><i class="fas fa-plus-circle "></i></div>
+                        <div class="label ">إضافة خدمة</div>
+                    </a>
+                    <a href="# " class="quick-action " onclick="openModal( 'team') ">
+                        <div class="icon "><i class="fas fa-user-plus "></i></div>
+                        <div class="label ">إضافة عضو</div>
+                    </a>
+                    <a href="# " class="quick-action " onclick="openModal( 'user') ">
+                        <div class="icon "><i class="fas fa-user-plus "></i></div>
+                        <div class="label ">إضافة مستخدم</div>
+                    </a>
+                    <a href="# " class="quick-action " onclick="switchSection( 'messages') ">
+                        <div class="icon "><i class="fas fa-envelope "></i></div>
+                        <div class="label ">عرض الرسائل</div>
+                    </a>
+                </div>
+
+                <div class="dashboard-grid ">
+                    <div class="dashboard-card ">
+                        <div class="card-header ">
+                            <h3>📊 إحصائيات الزيارات</h3>
+                            <span onclick="switchSection( 'analytics') " style="color: var(--text-muted); font-size: 0.85rem; cursor: pointer; ">عرض التفاصيل <i class="fas fa-arrow-left "></i></span>
+                        </div>
+                        <div class="chart-container ">
+                            <canvas id="visitsChart "></canvas>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card ">
+                        <div class="card-header ">
+                            <h3>🕐 آخر النشاطات</h3>
+                        </div>
+                        <div id="activitiesList ">
+                            <div class="activity-item ">
+                                <div class="icon purple "><i class="fas fa-user-plus "></i></div>
+                                <div class="content ">
+                                    <div class="text ">جاري تحميل النشاطات...</div>
+                                    <div class="time ">---</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: ANALYTICS
+            ============================================================ -->
+            <div class="admin-section " id="section-analytics ">
+                <div class="section-header-admin ">
+                    <h2>📊 لوحة التحليلات</h2>
+                    <div class="actions ">
+                        <button class="btn-export " onclick="refreshAnalytics() "><i class="fas fa-sync-alt "></i> تحديث</button>
+                    </div>
+                </div>
+
+                <div class="admin-stats " id="analyticsStats ">
+                    <div class="stat-card ">
+                        <div class="number " id="analyticsVisitors ">0</div>
+                        <div class="label ">👁️ إجمالي الزوار</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="analyticsPageViews ">0</div>
+                        <div class="label ">📄 مشاهدات الصفحات</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="analyticsOrders ">0</div>
+                        <div class="label ">📦 الطلبات</div>
+                    </div>
+                    <div class="stat-card ">
+                        <div class="number " id="analyticsMessages ">0</div>
+                        <div class="label ">✉️ الرسائل</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; ">
+                    <div class="dashboard-card ">
+                        <div class="card-header ">
+                            <h4>📈 أكثر الخدمات طلبًا</h4>
+                        </div>
+                        <div id="topServices ">
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); ">
+                                <span>تطوير المواقع</span>
+                                <span style="font-weight: 700; color: var(--primary-light); ">45%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); ">
+                                <span>التصميم الإبداعي</span>
+                                <span style="font-weight: 700; color: var(--primary-light); ">30%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; ">
+                                <span>المونتاج والإنتاج</span>
+                                <span style="font-weight: 700; color: var(--primary-light); ">25%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card ">
+                        <div class="card-header ">
+                            <h4>📊 الزيارات اليومية</h4>
+                        </div>
+                        <div class="chart-container " style="height: 200px; ">
+                            <canvas id="dailyChart "></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: PROJECTS
+            ============================================================ -->
+            <div class="admin-section " id="section-projects ">
+                <div class="section-header-admin ">
+                    <h2>📁 المشاريع</h2>
+                    <div class="actions ">
+                        <button class="btn-add " id="addProjectBtn "><i class="fas fa-plus "></i> إضافة مشروع</button>
+                    </div>
+                </div>
+                <div class="table-container ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>العنوان</th>
+                                <th>التصنيف</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectsTable "></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: SERVICES
+            ============================================================ -->
+            <div class="admin-section " id="section-services ">
+                <div class="section-header-admin ">
+                    <h2>⚙️ الخدمات</h2>
+                    <div class="actions ">
+                        <button class="btn-add " id="addServiceBtn "><i class="fas fa-plus "></i> إضافة خدمة</button>
+                    </div>
+                </div>
+                <div class="table-container ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>الخدمة</th>
+                                <th>الوصف</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="servicesTable "></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: TEAM
+            ============================================================ -->
+            <div class="admin-section " id="section-team ">
+                <div class="section-header-admin ">
+                    <h2>👥 أعضاء الفريق</h2>
+                    <div class="actions ">
+                        <button class="btn-add " id="addTeamBtn "><i class="fas fa-plus "></i> إضافة عضو</button>
+                    </div>
+                </div>
+                <div class="table-container ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>الاسم</th>
+                                <th>الوظيفة</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamTable "></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: USERS
+            ============================================================ -->
+            <div class="admin-section " id="section-users ">
+                <div class="section-header-admin ">
+                    <h2>👤 المستخدمين</h2>
+                    <div class="actions ">
+                        <button class="btn-add " id="addUserBtn "><i class="fas fa-plus "></i> إضافة مستخدم</button>
+                    </div>
+                </div>
+                <div class="table-container ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>الاسم</th>
+                                <th>البريد</th>
+                                <th>الدور</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable "></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: ORDERS
+            ============================================================ -->
+            <div class="admin-section " id="section-orders ">
+                <div class="section-header-admin ">
+                    <h2>📦 الطلبات</h2>
+                </div>
+                <div class="table-container ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>العميل</th>
+                                <th>الخدمة</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable "></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: MESSAGES
+            ============================================================ -->
+            <div class="admin-section " id="section-messages ">
+                <div class="section-header-admin ">
+                    <h2>✉️ الرسائل</h2>
+                </div>
+                <div class="table-container ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>المرسل</th>
+                                <th>البريد</th>
+                                <th>الخدمة</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messagesTable "></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: REVIEWS
+            ============================================================ -->
+            <div class="admin-section " id="section-reviews ">
+                <div class="section-header-admin ">
+                    <h2>⭐ التقييمات</h2>
+                </div>
+                <div class="table-container ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>الاسم</th>
+                                <th>التقييم</th>
+                                <th>العنوان</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reviewsTable "></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            SECTION: SETTINGS
+            ============================================================ -->
+            <div class="admin-section " id="section-settings ">
+                <div class="section-header-admin ">
+                    <h2>⚙️ إعدادات الموقع</h2>
+                </div>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2rem; max-width: 700px; ">
+                    <form id="settingsForm ">
+                        <div class="form-group ">
+                            <label>اسم الموقع</label>
+                            <input type="text " id="siteName " value="Team Zero ">
+                        </div>
+                        <div class="form-group ">
+                            <label>وصف الموقع</label>
+                            <input type="text " id="siteDescription " value="وكالة رقمية متكاملة ">
+                        </div>
+                        <div class="form-group ">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email " id="contactEmail " value="info@teamzero.com ">
+                        </div>
+                        <div class="form-group ">
+                            <label>رقم الهاتف</label>
+                            <input type="text " id="contactPhone " value="+966 55 000 0000 ">
+                        </div>
+                        <div class="form-group ">
+                            <label>العنوان</label>
+                            <input type="text " id="contactAddress " value="الرياض، المملكة العربية السعودية ">
+                        </div>
+                        <button type="submit " class="btn-add " style="width: 100%; justify-content: center; "><i class="fas fa-save "></i> حفظ الإعدادات</button>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ============================================================
+    MODAL
+    ============================================================ -->
+    <div class="modal-overlay " id="modalOverlay ">
+        <div class="modal-box ">
+            <button class="modal-close " id="modalClose "><i class="fas fa-times "></i></button>
+            <h3 id="modalTitle ">إضافة جديد</h3>
+            <form id="modalForm ">
+                <div id="modalFields "></div>
+                <div class="form-actions ">
+                    <button type="button " class="btn-cancel " id="modalCancel ">إلغاء</button>
+                    <button type="submit " class="btn-submit " id="modalSubmit ">حفظ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // API HELPER
+        // ============================================================
+        const API_BASE = '/api';
+
+        function getToken() {
+            return localStorage.getItem('token');
+        }
+
+        function getHeaders() {
+            return {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken()}`
+            };
+        }
+
+        async function fetchAPI(endpoint, options = {}) {
+            const res = await fetch(`${API_BASE}${endpoint}`, {
+                ...options,
+                headers: {
+                    ...getHeaders(),
+                    ...options.headers
+                }
+            });
+            if (!res.ok) {
+                const error = await res.json();
+                throw new Error(error.error || 'حدث خطأ');
+            }
+            return res.json();
+        }
+
+        // ============================================================
+        // AUTH CHECK
+        // ============================================================
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user') || 'null');
+
+        if (!token || !user || user.role !== 'admin') {
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('adminName').textContent = user.fullName || 'مدير النظام';
+        document.getElementById('adminAvatar').textContent = (user.fullName || 'A').charAt(0);
+
+        // ============================================================
+        // NOTIFICATION
+        // ============================================================
+        function showNotification(message, type = 'success') {
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 0.8rem 1.5rem;
+                border-radius: var(--radius-sm);
+                background: ${type === 'success' ? 'var(--gradient-main)' : type === 'error' ? '#FF6B6B' : '#4A9EFF'};
+                color: white;
+                font-weight: 600;
+                max-width: 400px;
+                z-index: 9999;
+                animation: slideDown 0.5s ease;
+                box-shadow: var(--shadow-glow);
+                font-family: 'Cairo', sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+            `;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button style="background:none;border:none;color:white;cursor:pointer;font-size:1.1rem;margin-right:auto; " onclick="this.parentElement.remove() ">✕</button>
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(-20px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
+        }
+
+        // ============================================================
+        // DASHBOARD
+        // ============================================================
+        async function loadStats() {
+            try {
+                const data = await fetchAPI('/admin/stats');
+                document.getElementById('statUsers').textContent = data.users || 0;
+                document.getElementById('statProjects').textContent = data.projects || 0;
+                document.getElementById('statServices').textContent = data.services || 0;
+                document.getElementById('statTeam').textContent = data.team || 0;
+                document.getElementById('statOrders').textContent = data.orders || 0;
+                document.getElementById('statMessages').textContent = data.messages || 0;
+
+                document.getElementById('badgeProjects').textContent = data.projects || 0;
+                document.getElementById('badgeServices').textContent = data.services || 0;
+                document.getElementById('badgeTeam').textContent = data.team || 0;
+                document.getElementById('badgeUsers').textContent = data.users || 0;
+                document.getElementById('badgeOrders').textContent = data.orders || 0;
+                document.getElementById('badgeMessages').textContent = data.messages || 0;
+                document.getElementById('badgeReviews').textContent = data.reviews || 0;
+
+                // Analytics stats
+                document.getElementById('analyticsVisitors').textContent = data.visits || 0;
+                document.getElementById('analyticsOrders').textContent = data.orders || 0;
+                document.getElementById('analyticsMessages').textContent = data.messages || 0;
+
+            } catch (error) {
+                console.error('Load stats error:', error);
+                showNotification('❌ فشل تحميل الإحصائيات', 'error');
+            }
+        }
+
+        async function loadActivities() {
+            try {
+                // For demo, using static activities
+                const activities = [{
+                    icon: 'purple',
+                    iconClass: 'fa-user-plus',
+                    text: 'مستخدم جديد: <span class="highlight ">أحمد محمد</span>',
+                    time: 'منذ 5 دقائق'
+                }, {
+                    icon: 'blue',
+                    iconClass: 'fa-folder-open',
+                    text: 'تم إضافة مشروع: <span class="highlight ">موقع شركة تكنو</span>',
+                    time: 'منذ 15 دقيقة'
+                }, {
+                    icon: 'green',
+                    iconClass: 'fa-shopping-cart',
+                    text: 'طلب جديد: <span class="highlight ">تصميم هوية بصرية</span>',
+                    time: 'منذ 1 ساعة'
+                }, {
+                    icon: 'orange',
+                    iconClass: 'fa-envelope',
+                    text: 'رسالة جديدة من: <span class="highlight ">خالد العتيبي</span>',
+                    time: 'منذ 2 ساعات'
+                }];
+
+                const list = document.getElementById('activitiesList');
+                list.innerHTML = activities.map(a => `
+                    <div class="activity-item ">
+                        <div class="icon ${a.icon} "><i class="fas ${a.iconClass} "></i></div>
+                        <div class="content ">
+                            <div class="text ">${a.text}</div>
+                            <div class="time ">${a.time}</div>
+                        </div>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                console.error('Load activities error:', error);
+            }
+        }
+
+        // ============================================================
+        // CHARTS
+        // ============================================================
+        let visitsChart, dailyChart;
+
+        function initVisitsChart() {
+            const ctx = document.getElementById('visitsChart').getContext('2d');
+            const isDark = true;
+            const textColor = 'rgba(255,255,255,0.7)';
+            const gridColor = 'rgba(255,255,255,0.05)';
+
+            visitsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    datasets: [{
+                        label: 'الزيارات',
+                        data: [120, 190, 150, 220, 180, 240, 200],
+                        borderColor: '#6C3CE1',
+                        backgroundColor: 'rgba(108, 60, 225, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#6C3CE1',
+                        pointBorderColor: '#6C3CE1',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }, {
+                        label: 'المستخدمين الجدد',
+                        data: [20, 35, 25, 40, 30, 45, 38],
+                        borderColor: '#4A9EFF',
+                        backgroundColor: 'rgba(74, 158, 255, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#4A9EFF',
+                        pointBorderColor: '#4A9EFF',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: textColor,
+                                font: {
+                                    family: 'Cairo',
+                                    size: 11
+                                },
+                                boxWidth: 12,
+                                boxHeight: 12,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: gridColor,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: textColor,
+                                font: {
+                                    family: 'Cairo',
+                                    size: 10
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: gridColor,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: textColor,
+                                font: {
+                                    family: 'Cairo',
+                                    size: 10
+                                }
+                            },
+                            beginAtZero: true
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    }
+                }
+            });
+        }
+
+        function initDailyChart() {
+            const ctx = document.getElementById('dailyChart').getContext('2d');
+            const textColor = 'rgba(255,255,255,0.7)';
+            const gridColor = 'rgba(255,255,255,0.05)';
+
+            dailyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    datasets: [{
+                        label: 'الزيارات اليومية',
+                        data: [850, 920, 780, 1050, 890, 1200, 980],
+                        backgroundColor: 'rgba(108, 60, 225, 0.6)',
+                        borderColor: '#6C3CE1',
+                        borderWidth: 2,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: textColor,
+                                font: {
+                                    family: 'Cairo',
+                                    size: 11
+                                },
+                                boxWidth: 12,
+                                boxHeight: 12,
+                                usePointStyle: true
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: gridColor,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: textColor,
+                                font: {
+                                    family: 'Cairo',
+                                    size: 10
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: gridColor,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: textColor,
+                                font: {
+                                    family: 'Cairo',
+                                    size: 10
+                                }
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // ============================================================
+        // LOAD TABLES
+        // ============================================================
+        async function loadProjects() {
+            try {
+                const data = await fetchAPI('/admin/projects');
+                const tbody = document.getElementById('projectsTable');
+                tbody.innerHTML = data.map(p => `
+                    <tr>
+                        <td>${p.id}</td>
+                        <td><strong>${p.title}</strong></td>
+                        <td>${p.category}</td>
+                        <td><span class="status ${p.status==='completed' ? 'completed' : p.status==='in-progress' ? 'active' : 'pending'} ">${p.status}</span></td>
+                        <td>
+                            <div class="actions ">
+                                <button class="edit " onclick="editItem( 'projects', ${p.id}) "><i class="fas fa-edit "></i></button>
+                                <button class="delete " onclick="deleteItem( 'projects', ${p.id}) "><i class="fas fa-trash "></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Load projects error:', error);
+                showNotification('❌ فشل تحميل المشاريع', 'error');
+            }
+        }
+
+        async function loadServices() {
+            try {
+                const data = await fetchAPI('/admin/services');
+                const tbody = document.getElementById('servicesTable');
+                tbody.innerHTML = data.map(s => `
+                    <tr>
+                        <td>${s.id}</td>
+                        <td><strong>${s.name}</strong></td>
+                        <td>${s.description}</td>
+                        <td><span class="status ${s.isActive ? 'active' : 'inactive'} ">${s.isActive ? 'نشط' : 'غير نشط'}</span></td>
+                        <td>
+                            <div class="actions ">
+                                <button class="edit " onclick="editItem( 'services', ${s.id}) "><i class="fas fa-edit "></i></button>
+                                <button class="delete " onclick="deleteItem( 'services', ${s.id}) "><i class="fas fa-trash "></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Load services error:', error);
+                showNotification('❌ فشل تحميل الخدمات', 'error');
+            }
+        }
+
+        async function loadTeam() {
+            try {
+                const data = await fetchAPI('/admin/team');
+                const tbody = document.getElementById('teamTable');
+                tbody.innerHTML = data.map(m => `
+                    <tr>
+                        <td>${m.id}</td>
+                        <td><strong>${m.name}</strong></td>
+                        <td>${m.role}</td>
+                        <td><span class="status ${m.status==='نشط' ? 'active' : 'inactive'} ">${m.status}</span></td>
+                        <td>
+                            <div class="actions ">
+                                <button class="edit " onclick="editItem( 'team', ${m.id}) "><i class="fas fa-edit "></i></button>
+                                <button class="delete " onclick="deleteItem( 'team', ${m.id}) "><i class="fas fa-trash "></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Load team error:', error);
+                showNotification('❌ فشل تحميل أعضاء الفريق', 'error');
+            }
+        }
+
+        async function loadUsers() {
+            try {
+                const data = await fetchAPI('/admin/users');
+                const tbody = document.getElementById('usersTable');
+                tbody.innerHTML = data.map(u => `
+                    <tr>
+                        <td>${u.id}</td>
+                        <td><strong>${u.fullName}</strong></td>
+                        <td>${u.email}</td>
+                        <td>${u.role}</td>
+                        <td><span class="status ${u.isActive ? 'active' : 'inactive'} ">${u.isActive ? 'نشط' : 'غير نشط'}</span></td>
+                        <td>
+                            <div class="actions ">
+                                <button class="edit " onclick="editItem( 'users', ${u.id}) "><i class="fas fa-edit "></i></button>
+                                <button class="delete " onclick="deleteItem( 'users', ${u.id}) "><i class="fas fa-trash "></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Load users error:', error);
+                showNotification('❌ فشل تحميل المستخدمين', 'error');
+            }
+        }
+
+        async function loadOrders() {
+            try {
+                const data = await fetchAPI('/admin/orders');
+                const tbody = document.getElementById('ordersTable');
+                tbody.innerHTML = data.map(o => `
+                    <tr>
+                        <td>${o.id}</td>
+                        <td><strong>${o.customerName}</strong></td>
+                        <td>${o.serviceType}</td>
+                        <td><span class="status ${o.status==='completed' ? 'completed' : o.status==='in-progress' ? 'active' : 'pending'} ">${o.status}</span></td>
+                        <td>
+                            <div class="actions ">
+                                <button class="edit " onclick="editItem( 'orders', ${o.id}) "><i class="fas fa-edit "></i></button>
+                                <button class="delete " onclick="deleteItem( 'orders', ${o.id}) "><i class="fas fa-trash "></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Load orders error:', error);
+                showNotification('❌ فشل تحميل الطلبات', 'error');
+            }
+        }
+
+        async function loadMessages() {
+            try {
+                const data = await fetchAPI('/admin/messages');
+                const tbody = document.getElementById('messagesTable');
+                tbody.innerHTML = data.map(m => `
+                    <tr>
+                        <td>${m.id}</td>
+                        <td><strong>${m.name}</strong></td>
+                        <td>${m.email}</td>
+                        <td>${m.service || 'عام'}</td>
+                        <td><span class="status ${m.read ? 'completed' : 'pending'} ">${m.read ? 'مقروء' : 'جديد'}</span></td>
+                        <td>
+                            <div class="actions ">
+                                ${!m.read ? `<button class="edit " onclick="markMessageRead(${m.id}) "><i class="fas fa-check "></i></button>` : ''}
+                                <button class="delete " onclick="deleteItem( 'messages', ${m.id}) "><i class="fas fa-trash "></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Load messages error:', error);
+                showNotification('❌ فشل تحميل الرسائل', 'error');
+            }
+        }
+
+        async function loadReviews() {
+            try {
+                const data = await fetchAPI('/admin/reviews');
+                const tbody = document.getElementById('reviewsTable');
+                tbody.innerHTML = data.map(r => `
+                    <tr>
+                        <td>${r.id}</td>
+                        <td><strong>${r.name}</strong></td>
+                        <td>${'⭐'.repeat(r.rating)} (${r.rating})</td>
+                        <td>${r.title}</td>
+                        <td><span class="status ${r.status==='approved' ? 'active' : 'pending'} ">${r.status}</span></td>
+                        <td>
+                            <div class="actions ">
+                                <button class="edit " onclick="editItem( 'reviews', ${r.id}) "><i class="fas fa-edit "></i></button>
+                                <button class="delete " onclick="deleteItem( 'reviews', ${r.id}) "><i class="fas fa-trash "></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Load reviews error:', error);
+                showNotification('❌ فشل تحميل التقييمات', 'error');
+            }
+        }
+
+        // ============================================================
+        // CRUD OPERATIONS
+        // ============================================================
+        async function deleteItem(collection, id) {
+            if (!confirm('هل أنت متأكد من حذف هذا العنصر؟')) return;
+
+            try {
+                await fetchAPI(`/admin/${collection}/${id}`, { method: 'DELETE' });
+                showNotification('🗑️ تم الحذف بنجاح', 'success');
+                refreshData();
+            } catch (error) {
+                showNotification('❌ ' + error.message, 'error');
+            }
+        }
+
+        async function markMessageRead(id) {
+            try {
+                await fetchAPI(`/admin/messages/${id}/read`, { method: 'PUT' });
+                showNotification('✅ تم تحديد الرسالة كمقروءة', 'success');
+                loadMessages();
+                loadStats();
+            } catch (error) {
+                showNotification('❌ ' + error.message, 'error');
+            }
+        }
+
+        function editItem(collection, id) {
+            openModal(collection, { id });
+        }
+
+        // ============================================================
+        // MODAL
+        // ============================================================
+        let modalType = '';
+        let editId = null;
+
+        function openModal(type, data = null) {
+            const modal = document.getElementById('modalOverlay');
+            const title = document.getElementById('modalTitle');
+            const fields = document.getElementById('modalFields');
+            const submit = document.getElementById('modalSubmit');
+
+            modalType = type;
+            editId = data ?.id || null;
+
+            const configs = {
+                project: {
+                    title: data ? 'تعديل المشروع' : 'إضافة مشروع جديد',
+                    fields: `
+                        <div class="form-group "><label>اسم المشروع</label><input type="text " id="field_title " value="${data?.title || ''} " placeholder="أدخل اسم المشروع " required></div>
+                        <div class="form-group "><label>التصنيف</label>
+                            <select id="field_category ">
+                                <option value="web " ${data?.category === 'web' ? 'selected' : ''}>ويب</option>
+                                <option value="design " ${data?.category === 'design' ? 'selected' : ''}>تصميم</option>
+                                <option value="video " ${data?.category === 'video' ? 'selected' : ''}>فيديو</option>
+                            </select>
+                        </div>
+                        <div class="form-group "><label>الوصف</label><textarea id="field_description " placeholder="أدخل وصف المشروع ">${data?.description || ''}</textarea></div>
+                        <div class="form-group "><label>الحالة</label>
+                            <select id="field_status ">
+                                <option value="completed " ${data?.status === 'completed' ? 'selected' : ''}>مكتمل</option>
+                                <option value="in-progress " ${data?.status === 'in-progress' ? 'selected' : ''}>قيد التنفيذ</option>
+                                <option value="pending " ${data?.status === 'pending' ? 'selected' : ''}>معلق</option>
+                            </select>
+                        </div>
+                    `
+                },
+                service: {
+                    title: data ? 'تعديل الخدمة' : 'إضافة خدمة جديدة',
+                    fields: `
+                        <div class="form-group "><label>اسم الخدمة</label><input type="text " id="field_name " value="${data?.name || ''} " placeholder="أدخل اسم الخدمة " required></div>
+                        <div class="form-group "><label>الوصف</label><textarea id="field_description " placeholder="أدخل وصف الخدمة ">${data?.description || ''}</textarea></div>
+                        <div class="form-group "><label>الأيقونة</label><input type="text " id="field_icon " value="${data?.icon || '💻'} " placeholder="💻 "></div>
+                        <div class="form-group "><label>الحالة</label>
+                            <select id="field_isActive ">
+                                <option value="true " ${data?.isActive !== false ? 'selected' : ''}>نشط</option>
+                                <option value="false " ${data?.isActive === false ? 'selected' : ''}>غير نشط</option>
+                            </select>
+                        </div>
+                    `
+                },
+                team: {
+                    title: data ? 'تعديل العضو' : 'إضافة عضو جديد',
+                    fields: `
+                        <div class="form-group "><label>الاسم</label><input type="text " id="field_name " value="${data?.name || ''} " placeholder="أدخل اسم العضو " required></div>
+                        <div class="form-group "><label>الوظيفة</label><input type="text " id="field_role " value="${data?.role || ''} " placeholder="أدخل الوظيفة " required></div>
+                        <div class="form-group "><label>الأيقونة</label><input type="text " id="field_icon " value="${data?.icon || '👤'} " placeholder="👤 "></div>
+                        <div class="form-group "><label>الحالة</label>
+                            <select id="field_status ">
+                                <option value="نشط " ${data?.status === 'نشط' ? 'selected' : ''}>نشط</option>
+                                <option value="غير نشط " ${data?.status === 'غير نشط' ? 'selected' : ''}>غير نشط</option>
+                            </select>
+                        </div>
+                    `
+                },
+                user: {
+                    title: data ? 'تعديل المستخدم' : 'إضافة مستخدم جديد',
+                    fields: `
+                        <div class="form-group "><label>اسم المستخدم</label><input type="text " id="field_username " value="${data?.username || ''} " placeholder="أدخل اسم المستخدم " required></div>
+                        <div class="form-group "><label>الاسم الكامل</label><input type="text " id="field_fullName " value="${data?.fullName || ''} " placeholder="أدخل الاسم الكامل " required></div>
+                        <div class="form-group "><label>البريد الإلكتروني</label><input type="email " id="field_email " value="${data?.email || ''} " placeholder="أدخل البريد الإلكتروني " required></div>
+                        ${!data ? `<div class="form-group "><label>كلمة المرور</label><input type="password " id="field_password " placeholder="أدخل كلمة المرور " required></div>` : ''}
+                        <div class="form-group "><label>الدور</label>
+                            <select id="field_role ">
+                                <option value="admin " ${data?.role === 'admin' ? 'selected' : ''}>مدير</option>
+                                <option value="moderator " ${data?.role === 'moderator' ? 'selected' : ''}>مشرف</option>
+                                <option value="member " ${data?.role === 'member' ? 'selected' : ''}>عضو</option>
+                            </select>
+                        </div>
+                        <div class="form-group "><label>الحالة</label>
+                            <select id="field_isActive ">
+                                <option value="true " ${data?.isActive !== false ? 'selected' : ''}>نشط</option>
+                                <option value="false " ${data?.isActive === false ? 'selected' : ''}>غير نشط</option>
+                            </select>
+                        </div>
+                    `
+                },
+                orders: {
+                    title: 'تعديل الطلب',
+                    fields: `
+                        <div class="form-group "><label>الحالة</label>
+                            <select id="field_status ">
+                                <option value="pending " ${data?.status === 'pending' ? 'selected' : ''}>معلق</option>
+                                <option value="in-progress " ${data?.status === 'in-progress' ? 'selected' : ''}>قيد التنفيذ</option>
+                                <option value="completed " ${data?.status === 'completed' ? 'selected' : ''}>مكتمل</option>
+                                <option value="cancelled " ${data?.status === 'cancelled' ? 'selected' : ''}>ملغي</option>
+                            </select>
+                        </div>
+                        <div class="form-group "><label>الأولوية</label>
+                            <select id="field_priority ">
+                                <option value="low " ${data?.priority === 'low' ? 'selected' : ''}>منخفضة</option>
+                                <option value="medium " ${data?.priority === 'medium' ? 'selected' : ''}>متوسطة</option>
+                                <option value="high " ${data?.priority === 'high' ? 'selected' : ''}>عالية</option>
+                                <option value="urgent " ${data?.priority === 'urgent' ? 'selected' : ''}>عاجلة</option>
+                            </select>
+                        </div>
+                    `
+                },
+                reviews: {
+                    title: 'تعديل التقييم',
+                    fields: `
+                        <div class="form-group "><label>الحالة</label>
+                            <select id="field_status ">
+                                <option value="pending " ${data?.status === 'pending' ? 'selected' : ''}>قيد المراجعة</option>
+                                <option value="approved " ${data?.status === 'approved' ? 'selected' : ''}>مقبول</option>
+                                <option value="rejected " ${data?.status === 'rejected' ? 'selected' : ''}>مرفوض</option>
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <label><input type="checkbox " id="field_verified " ${data?.verified ? 'checked' : ''}> موثق</label>
+                        </div>
+                    `
+                }
+            };
+
+            const config = configs[type];
+            if (!config) {
+                showNotification('❌ نوع غير معروف', 'error');
+                return;
+            }
+
+            title.textContent = config.title;
+            fields.innerHTML = config.fields;
+            submit.textContent = data ? 'تحديث' : 'إضافة';
+
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+
+            document.getElementById('modalForm').onsubmit = function(e) {
+                e.preventDefault();
+                saveModalItem(type);
+            };
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modalCancel').addEventListener('click', closeModal);
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        async function saveModalItem(type) {
+            const fields = document.querySelectorAll('#modalFields input, #modalFields select, #modalFields textarea');
+            const data = {};
+            fields.forEach(field => {
+                const key = field.id.replace('field_', '');
+                if (field.type === 'checkbox') {
+                    data[key] = field.checked;
+                } else if (field.type === 'number') {
+                    data[key] = parseFloat(field.value);
+                } else {
+                    data[key] = field.value;
+                }
+            });
+
+            try {
+                if (editId) {
+                    await fetchAPI(`/admin/${type}/${editId}`, {
+                        method: 'PUT',
+                        body: JSON.stringify(data)
+                    });
+                    showNotification('✅ تم التحديث بنجاح', 'success');
+                } else {
+                    await fetchAPI(`/admin/${type}`, {
+                        method: 'POST',
+                        body: JSON.stringify(data)
+                    });
+                    showNotification('✅ تم الإضافة بنجاح', 'success');
+                }
+
+                closeModal();
+                refreshData();
+            } catch (error) {
+                showNotification('❌ ' + error.message, 'error');
+            }
+        }
+
+        // ============================================================
+        // SETTINGS
+        // ============================================================
+        document.getElementById('settingsForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const data = {
+                siteName: document.getElementById('siteName').value,
+                siteDescription: document.getElementById('siteDescription').value,
+                contactEmail: document.getElementById('contactEmail').value,
+                contactPhone: document.getElementById('contactPhone').value,
+                contactAddress: document.getElementById('contactAddress').value
+            };
+
+            try {
+                await fetchAPI('/admin/settings', {
+                    method: 'PUT',
+                    body: JSON.stringify(data)
+                });
+                showNotification('✅ تم حفظ الإعدادات بنجاح', 'success');
+            } catch (error) {
+                showNotification('❌ ' + error.message, 'error');
+            }
+        });
+
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        function switchSection(section) {
+            document.querySelectorAll('.sidebar-menu a').forEach(a => a.classList.remove('active'));
+            document.querySelector(`.sidebar-menu a[data-section="${section} "]`)?.classList.add('active');
+
+            document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(`section-${section}`).classList.add('active');
+
+            const titles = {
+                dashboard: 'لوحة التحكم',
+                analytics: 'التحليلات',
+                projects: 'المشاريع',
+                services: 'الخدمات',
+                team: 'الفريق',
+                users: 'المستخدمين',
+                orders: 'الطلبات',
+                messages: 'الرسائل',
+                reviews: 'التقييمات',
+                settings: 'الإعدادات'
+            };
+            document.getElementById('pageTitle').textContent = titles[section] || section;
+
+            if (section === 'analytics') refreshAnalytics();
+        }
+
+        document.querySelectorAll('.sidebar-menu a[data-section]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                switchSection(this.dataset.section);
+            });
+        });
+
+        // Add button listeners
+        document.getElementById('addProjectBtn').addEventListener('click', () => openModal('project'));
+        document.getElementById('addServiceBtn').addEventListener('click', () => openModal('service'));
+        document.getElementById('addTeamBtn').addEventListener('click', () => openModal('team'));
+        document.getElementById('addUserBtn').addEventListener('click', () => openModal('user'));
+
+        // ============================================================
+        // REFRESH
+        // ============================================================
+        async function refreshData() {
+            await loadStats();
+            await loadProjects();
+            await loadServices();
+            await loadTeam();
+            await loadUsers();
+            await loadOrders();
+            await loadMessages();
+            await loadReviews();
+            showNotification('🔄 تم تحديث البيانات', 'success');
+        }
+
+        async function refreshAnalytics() {
+            await loadStats();
+            showNotification('📊 تم تحديث التحليلات', 'success');
+        }
+
+        // ============================================================
+        // KEYBOARD SHORTCUTS
+        // ============================================================
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+            if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+                e.preventDefault();
+                refreshData();
+            }
+        });
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStats();
+            loadActivities();
+            initVisitsChart();
+            initDailyChart();
+            loadProjects();
+            loadServices();
+            loadTeam();
+            loadUsers();
+            loadOrders();
+            loadMessages();
+            loadReviews();
+
+            // Load settings
+            fetchAPI('/admin/settings')
+                .then(data => {
+                    document.getElementById('siteName').value = data.siteName || 'Team Zero';
+                    document.getElementById('siteDescription').value = data.siteDescription || 'وكالة رقمية متكاملة';
+                    document.getElementById('contactEmail').value = data.contactEmail || 'info@teamzero.com';
+                    document.getElementById('contactPhone').value = data.contactPhone || '+966 55 000 0000';
+                    document.getElementById('contactAddress').value = data.contactAddress || 'الرياض، المملكة العربية السعودية';
+                })
+                .catch(() => {});
+
+            console.log('🚀 Admin Dashboard Loaded');
+        });
+    </script>
+
+</body>
+
+</html>
