@@ -1,265 +1,312 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Zero - وكالة رقمية متكاملة</title>
-    <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
-    <meta name="description" content="نبني مواقع ويب حديثة، نصمم هويات بصرية احترافية">
-    <meta name="theme-color" content="#6C3CE1">
-    <meta name="keywords" content="وكالة رقمية, تصميم, تطوير, تسويق, مونتاج, Team Zero">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Zero - وكالة رقمية متكاملة</title>
+        <link rel="icon" type="image/png" href="./assets/images/ZERO_2.png">
+        <meta name="description"
+            content="نبني مواقع ويب حديثة، نصمم هويات بصرية احترافية">
+        <meta name="theme-color" content="#6C3CE1">
+        <meta name="keywords"
+            content="وكالة رقمية, تصميم, تطوير, تسويق, مونتاج, Team Zero">
 
-    <!-- ===== Fonts ===== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- ===== Fonts ===== -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
 
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="css/responsive.css">
 
-    <!-- ===== Libraries ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <!-- ===== Libraries ===== -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-</head>
+    </head>
 
-<body>
-    <!-- ========================================
+    <body>
+        <!-- ========================================
     NAVIGATION
     ======================================== -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
-                    <span>Team <span class="highlight">Zero</span></span>
-                </a>
-
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="services.html">الخدمات</a></li>
-                    <li><a href="portfolio.html">أعمالنا</a></li>
-                    <li><a href="pricing.html">الأسعار</a></li>
-                    <li><a href="team.html">الفريق</a></li>
-                    <li><a href="blog.html">المدونة</a></li>
-                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
-
-                    <!-- ===== User Menu (Logged In) ===== -->
-                    <li class="nav-user-wrapper" id="navUserWrapper" style="display:none;">
-                        <div class="nav-user" id="navUserBtn">
-                            <div class="avatar" id="navAvatar">👤</div>
-                            <span class="name" id="navUserName">المستخدم</span>
-                            <i class="fas fa-chevron-down chevron"></i>
-                        </div>
-                        <div class="user-dropdown" id="userDropdown">
-                            <a href="profile.html">
-                                <i class="fas fa-user"></i>
-                                <span>الملف الشخصي</span>
-                            </a>
-                            <a href="#" id="adminLink" style="display:none;">
-                                <i class="fas fa-cog"></i>
-                                <span>لوحة التحكم</span>
-                            </a>
-                            <div class="divider"></div>
-                            <a href="#" class="logout-btn" id="logoutBtn">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>تسجيل الخروج</span>
-                            </a>
-                        </div>
-                    </li>
-
-                    <!-- ===== Auth Links (Logged Out) ===== -->
-                    <li id="authLinks">
-                        <a href="login.html" class="auth-link login-link">
-                            <i class="fas fa-sign-in-alt"></i>
-                            <span>تسجيل الدخول</span>
-                        </a>
-                        <a href="register.html" class="auth-link register-link">
-                            <i class="fas fa-user-plus"></i>
-                            <span>إنشاء حساب</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ========================================
-    HERO SECTION
-    ======================================== -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content" data-aos="fade-up">
-                    <div class="hero-badge">
-                        <i class="fas fa-rocket"></i> Team Zero - وكالة رقمية متكاملة
-                    </div>
-                    <h1 class="hero-title">
-                        نبني مواقع ويب حديثة،<br>
-                        <span class="gradient-text">نصمم هويات بصرية</span><br> ونحول أفكارك إلى مشاريع ناجحة
-                    </h1>
-                    <p class="hero-description">
-                        في Team Zero، نجمع بين الإبداع والتقنية لنقدم لك حلولًا رقمية متكاملة تأخذ علامتك التجارية إلى المستوى التالي.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn-primary">
-                            <i class="fas fa-play"></i> ابدأ مشروعك
-                        </a>
-                        <a href="portfolio.html" class="btn-secondary">
-                            <i class="fas fa-eye"></i> شاهد أعمالنا
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-visual" data-aos="fade-left">
-                    <div class="hero-3d-box">
-                        <img src="./assets/images/ZERO_2.png" alt="Team Zero" class="hero-logo-image">
-                        <div class="floating-cards">
-                            <div class="glass card-1">
-                                <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                                <span>تصميم احترافي</span>
-                            </div>
-                            <div class="glass card-2">
-                                <i class="fas fa-bolt" style="color: #FFD700;"></i>
-                                <span>أداء فائق</span>
-                            </div>
-                            <div class="glass card-3">
-                                <i class="fas fa-mobile-alt" style="color: #4A9EFF;"></i>
-                                <span>متجاوب بالكامل</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================
-    STATS SECTION
-    ======================================== -->
-    <section class="stats" id="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item" data-aos="fade-up">
-                    <div class="stat-number" data-count="120">0</div>
-                    <div class="stat-label">+ مشروع</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number" data-count="80">0</div>
-                    <div class="stat-label">+ عميل</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number" data-count="5">0</div>
-                    <div class="stat-label">سنوات خبرة</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number" data-count="98">0</div>
-                    <div class="stat-label">% رضا العملاء</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================
-    CTA SECTION
-    ======================================== -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="glass" style="padding: 4rem; text-align: center;" data-aos="fade-up">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">
-                    هل لديك <span class="gradient-text">فكرة مشروع</span>؟
-                </h2>
-                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                    دعنا نساعدك في تحويل فكرتك إلى واقع ملموس. احصل على استشارة مجانية الآن.
-                </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="contact.html" class="btn-primary">
-                        <i class="fas fa-play"></i> تحدث معنا الآن
-                    </a>
-                    <a href="services.html" class="btn-secondary">
-                        <i class="fas fa-arrow-left"></i> اكتشف خدماتنا
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================
-    FOOTER
-    ======================================== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo" style="font-size: 1.8rem;">
-                        <div class="logo-icon"><img src="./assets/images/ZERO_2.png" alt="Team Zero"></div>
+        <nav class="navbar" id="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><img
+                                src="./assets/images/ZERO_2.png"
+                                alt="Team Zero"></div>
                         <span>Team <span class="highlight">Zero</span></span>
                     </a>
-                    <p>نبني المستقبل الرقمي معًا. فريق متكامل من المبدعين والخبراء في مجال التقنية والتصميم.</p>
-                    <div class="footer-social">
-                        <a href="https://wa.me/+201203875621"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.tiktok.com/@zero_team_0"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://discord.gg/NjZ9d4ZEma"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
 
-                <div>
-                    <h4>روابط سريعة</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">الرئيسية</a></li>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html"
+                                class="active">الرئيسية</a></li>
                         <li><a href="about.html">من نحن</a></li>
                         <li><a href="services.html">الخدمات</a></li>
                         <li><a href="portfolio.html">أعمالنا</a></li>
                         <li><a href="pricing.html">الأسعار</a></li>
                         <li><a href="team.html">الفريق</a></li>
                         <li><a href="blog.html">المدونة</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
-                    </ul>
-                </div>
+                        <li><a href="contact.html" class="nav-cta">تواصل
+                                معنا</a></li>
 
-                <div>
-                    <h4>الخدمات</h4>
-                    <ul class="footer-links">
-                        <li><a href="services.html#web">تطوير المواقع</a></li>
-                        <li><a href="services.html#design">التصميم الإبداعي</a></li>
-                        <li><a href="services.html#video">المونتاج والإنتاج</a></li>
-                    </ul>
-                </div>
+                        <!-- ===== User Menu (Logged In) ===== -->
+                        <li class="nav-user-wrapper" id="navUserWrapper"
+                            style="display:none;">
+                            <div class="nav-user" id="navUserBtn">
+                                <div class="avatar" id="navAvatar">👤</div>
+                                <span class="name"
+                                    id="navUserName">المستخدم</span>
+                                <i class="fas fa-chevron-down chevron"></i>
+                            </div>
+                            <div class="user-dropdown" id="userDropdown">
+                                <a href="profile.html">
+                                    <i class="fas fa-user"></i>
+                                    <span>الملف الشخصي</span>
+                                </a>
+                                <a href="#" id="adminLink"
+                                    style="display:none;">
+                                    <i class="fas fa-cog"></i>
+                                    <span>لوحة التحكم</span>
+                                </a>
+                                <div class="divider"></div>
+                                <a href="#" class="logout-btn" id="logoutBtn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>تسجيل الخروج</span>
+                                </a>
+                            </div>
+                        </li>
 
-                <div>
-                    <h4>معلومات التواصل</h4>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> +201203875621</li>
-                        <li><i class="fas fa-envelope"></i> zeroteam136@gmail.com </li>
-                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
+                        <!-- ===== Auth Links (Logged Out) ===== -->
+                        <li id="authLinks">
+                            <a href="login.html" class="auth-link login-link">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>تسجيل الدخول</span>
+                            </a>
+                            <a href="register.html"
+                                class="auth-link register-link">
+                                <i class="fas fa-user-plus"></i>
+                                <span>إنشاء حساب</span>
+                            </a>
+                        </li>
                     </ul>
+
+                    <button class="hamburger" id="hamburger"
+                        aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
+        </nav>
 
-            <div class="footer-bottom">
-                <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ========================================
-    SCRIPTS
+        <!-- ========================================
+    HERO SECTION
     ======================================== -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content" data-aos="fade-up">
+                        <div class="hero-badge">
+                            <i class="fas fa-rocket"></i> Team Zero - وكالة
+                            رقمية متكاملة
+                        </div>
+                        <h1 class="hero-title">
+                            نبني مواقع ويب حديثة،<br>
+                            <span class="gradient-text">نصمم هويات
+                                بصرية</span><br> ونحول أفكارك إلى مشاريع ناجحة
+                        </h1>
+                        <p class="hero-description">
+                            في Team Zero، نجمع بين الإبداع والتقنية لنقدم لك
+                            حلولًا رقمية متكاملة تأخذ علامتك التجارية إلى
+                            المستوى التالي.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="contact.html" class="btn-primary">
+                                <i class="fas fa-play"></i> ابدأ مشروعك
+                            </a>
+                            <a href="portfolio.html" class="btn-secondary">
+                                <i class="fas fa-eye"></i> شاهد أعمالنا
+                            </a>
+                        </div>
+                    </div>
 
-    <script>
+                    <div class="hero-visual" data-aos="fade-left">
+                        <div class="hero-3d-box">
+                            <img src="./assets/images/ZERO_2.png"
+                                alt="Team Zero" class="hero-logo-image">
+                            <div class="floating-cards">
+                                <div class="glass card-1">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #4CAF50;"></i>
+                                    <span>تصميم احترافي</span>
+                                </div>
+                                <div class="glass card-2">
+                                    <i class="fas fa-bolt"
+                                        style="color: #FFD700;"></i>
+                                    <span>أداء فائق</span>
+                                </div>
+                                <div class="glass card-3">
+                                    <i class="fas fa-mobile-alt"
+                                        style="color: #4A9EFF;"></i>
+                                    <span>متجاوب بالكامل</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+    STATS SECTION
+    ======================================== -->
+        <section class="stats" id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item" data-aos="fade-up">
+                        <div class="stat-number" data-count="120">0</div>
+                        <div class="stat-label">+ مشروع</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="stat-number" data-count="80">0</div>
+                        <div class="stat-label">+ عميل</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="stat-number" data-count="5">0</div>
+                        <div class="stat-label">سنوات خبرة</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="stat-number" data-count="98">0</div>
+                        <div class="stat-label">% رضا العملاء</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+    CTA SECTION
+    ======================================== -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="glass" style="padding: 4rem; text-align: center;"
+                    data-aos="fade-up">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">
+                        هل لديك <span class="gradient-text">فكرة مشروع</span>؟
+                    </h2>
+                    <p
+                        style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                        دعنا نساعدك في تحويل فكرتك إلى واقع ملموس. احصل على
+                        استشارة مجانية الآن.
+                    </p>
+                    <div
+                        style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn-primary">
+                            <i class="fas fa-play"></i> تحدث معنا الآن
+                        </a>
+                        <a href="services.html" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i> اكتشف خدماتنا
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+    FOOTER
+    ======================================== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo"
+                            style="font-size: 1.8rem;">
+                            <div class="logo-icon"><img
+                                    src="./assets/images/ZERO_2.png"
+                                    alt="Team Zero"></div>
+                            <span>Team <span
+                                    class="highlight">Zero</span></span>
+                        </a>
+                        <p>نبني المستقبل الرقمي معًا. فريق متكامل من المبدعين
+                            والخبراء في مجال التقنية والتصميم.</p>
+                        <div class="footer-social">
+                            <a href="https://wa.me/+201203875621"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.tiktok.com/@zero_team_0"><i
+                                    class="fab fa-tiktok"></i></a>
+                            <a href="https://discord.gg/NjZ9d4ZEma"><i
+                                    class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4>روابط سريعة</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="services.html">الخدمات</a></li>
+                            <li><a href="portfolio.html">أعمالنا</a></li>
+                            <li><a href="pricing.html">الأسعار</a></li>
+                            <li><a href="team.html">الفريق</a></li>
+                            <li><a href="blog.html">المدونة</a></li>
+                            <li><a href="contact.html">تواصل معنا</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4>الخدمات</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html#web">تطوير
+                                    المواقع</a></li>
+                            <li><a href="services.html#design">التصميم
+                                    الإبداعي</a></li>
+                            <li><a href="services.html#video">المونتاج
+                                    والإنتاج</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4>معلومات التواصل</h4>
+                        <ul class="footer-links">
+                            <li><i class="fas fa-phone"></i> +201203875621</li>
+                            <li><i class="fas fa-envelope"></i>
+                                zeroteam136@gmail.com </li>
+                            <li><i class="fas fa-map-marker-alt"></i> القاهرة،
+                                مصر</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 Team Zero. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ===== Config ===== -->
+        <script src="js/config.js"></script>
+
+        <!-- ===== Libraries ===== -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- ===== Scripts ===== -->
+        <script src="js/app.js"></script>
+        <script>
         // ========================================
         // HOME PAGE - FULL SCRIPT
         // ========================================
@@ -550,6 +597,6 @@
             console.log('🔐 Status:', token ? 'Logged In' : 'Logged Out');
         });
     </script>
-</body>
+    </body>
 
 </html>

@@ -6,6 +6,12 @@
     'use strict';
 
     // ============================================================
+    // 0. API CONFIG - استخدام الرابط من ملف config
+    // ============================================================
+
+    const API_BASE_URL = window.API_BASE_URL || '/api';
+
+    // ============================================================
     // 1. USER AUTHENTICATION
     // ============================================================
 
@@ -256,7 +262,7 @@
     }
 
     // ============================================================
-    // 6. API HELPER
+    // 6. API HELPER (UPDATED)
     // ============================================================
 
     /**
@@ -280,7 +286,7 @@
         };
 
         try {
-            const response = await fetch(endpoint, config);
+            const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
             const data = await response.json();
 
             if (!response.ok) {
@@ -596,6 +602,7 @@
         }
 
         console.log('🚀 Team Zero - Application Loaded Successfully');
+        console.log('🌐 API URL:', API_BASE_URL);
         console.log('👤 User:', getCurrentUser() ? getCurrentUser().fullName || 'Guest' : 'Guest');
         console.log('🔐 Status:', isLoggedIn() ? 'Logged In' : 'Logged Out');
     });
@@ -613,11 +620,14 @@
         updateNavbar,
         showNotification,
         logoutUser,
-        apiRequest
+        apiRequest,
+        API_BASE_URL
     };
 
     window.showNotification = showNotification;
     window.updateNavbar = updateNavbar;
     window.logoutUser = logoutUser;
+    window.apiRequest = apiRequest;
+    window.API_BASE_URL = API_BASE_URL;
 
 })();
